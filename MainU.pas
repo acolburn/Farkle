@@ -54,7 +54,7 @@ procedure TfrmMain.btnSwitchClick(Sender: TObject);
 begin
   aPlayer.turnScore:=aPlayer.turnScore+aPlayer.rollScore;
   aPlayer.gameScore:=aPlayer.gameScore+aPlayer.turnScore;
-  ShowMessage('Turn: '+IntToStr(aPlayer.turnScore)+' pts. Game: '+IntToStr(aPlayer.gameScore)+' total pts.');
+  Label1.Text:=aPlayer.name+'''s turn: '+IntToStr(aPlayer.turnScore)+' pts. Game: '+IntToStr(aPlayer.gameScore)+' total pts.';
   if (aPlayer = player1) then
   begin
     aPlayer := player2;
@@ -66,14 +66,14 @@ begin
   aPlayer.turnScore:=0;
   aPlayer.rollScore:=0;
   aPlayer.resetGameBoard;
-  Label1.Text := aPlayer.name;
+  //Label1.Text := aPlayer.name;
 end;
 
 procedure TfrmMain.btnRollClick(Sender: TObject);
 begin
+  Label1.Text:=aPlayer.name+'''s turn';
   aPlayer.turnScore:=aPlayer.turnScore+aPlayer.rollScore;
   aPlayer.rollScore:=0;
-  ShowMessage('You scored '+IntToStr(aPlayer.turnScore)+' pts. on your turn.');
   aPlayer.rollCup;
 end;
 

@@ -225,7 +225,7 @@ object frmMain: TfrmMain
     Size.Width = 473.000000000000000000
     Size.Height = 41.000000000000000000
     Size.PlatformDefault = False
-    TextSettings.Font.Size = 36.000000000000000000
+    TextSettings.Font.Size = 20.000000000000000000
     TextSettings.HorzAlign = Center
     Text = 'Label1'
   end

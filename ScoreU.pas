@@ -5,7 +5,7 @@ interface
 uses System.SysUtils, Generics.Collections;
 
 type
-  TScore = class(TObject)
+  TScoreCalculator = class(TObject)
   private
     fRollScore: integer;
     procedure scoreOneDice(aDice: integer);
@@ -19,24 +19,24 @@ type
     selectedDice: TList<integer>;
     constructor Create;
     destructor Destroy; override;
-    function scoreTurn: string;
+    function scoreTurn: integer;
   end;
 
 implementation
 
-constructor TScore.Create;
+constructor TScoreCalculator.Create;
 begin
   inherited Create;
   selectedDice := TList<integer>.Create;
 end;
 
-destructor TScore.Destroy;
+destructor TScoreCalculator.Destroy;
 begin
   selectedDice.Free;
   inherited;
 end;
 
-function TScore.scoreTurn: string;
+function TScoreCalculator.scoreTurn: integer;
 begin
   fRollScore := 0;
   selectedDice.Sort;
@@ -50,10 +50,10 @@ begin
   1:scoreOneDice(selectedDice[0]);
   end;
 
-  result := IntToStr(fRollScore);
+  result := fRollScore;
 end;
 
-procedure TScore.scoreTwoDice;
+procedure TScoreCalculator.scoreTwoDice;
 var
   i: integer;
 begin
@@ -64,7 +64,7 @@ begin
   end;
 end;
 
-procedure TScore.scoreThreeDice;
+procedure TScoreCalculator.scoreThreeDice;
 var
   i, temp: integer;
 begin
@@ -88,7 +88,7 @@ begin
   end;
 end;
 
-procedure TScore.scoreTriplet(temp: integer);
+procedure TScoreCalculator.scoreTriplet(temp: integer);
 begin
   case temp of
     1:
@@ -118,7 +118,7 @@ begin
   end;
 end;
 
-procedure TScore.scoreFiveDice;
+procedure TScoreCalculator.scoreFiveDice;
 var
   i, temp: integer;
 begin
@@ -190,7 +190,7 @@ begin
   end; // end if selectedDice.Count=5
 end;
 
-procedure TScore.scoreFourDice;
+procedure TScoreCalculator.scoreFourDice;
 var
   i,temp:integer;
 begin
@@ -238,7 +238,7 @@ begin
   end; // end if selectedDice.Count = 4
 end;
 
-procedure TScore.scoreOneDice(aDice: integer);
+procedure TScoreCalculator.scoreOneDice(aDice: integer);
 begin
 
   // a 1 or a 5 is only way to score
@@ -254,7 +254,7 @@ begin
   end;
 end;
 
-procedure TScore.scoreSixDice;
+procedure TScoreCalculator.scoreSixDice;
 var
   temp:integer;
   i: Integer;

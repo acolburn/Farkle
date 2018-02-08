@@ -34,15 +34,11 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnSwitchClick(Sender: TObject);
     procedure GlyphTap(Sender: TObject);
-  private
-    { Private declarations }
+  public
     aPlayer: TPlayer;
     player1: TPlayer;
     player2: TPlayer;
     procedure initializePlayer(aPlayer: TPlayer);
-  public
-    { Public declarations }
-
   end;
 
 var
@@ -57,9 +53,13 @@ implementation
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
 begin
   if (aPlayer = player1) then
-    aPlayer := player2
+  begin
+    aPlayer := player2;
+  end
   else
+  begin
     aPlayer := player1;
+  end;
   aPlayer.reset;
   Label1.Text := aPlayer.name;
 end;
@@ -81,9 +81,6 @@ begin
   player2 := TPlayer.Create('Alan');
   initializePlayer(player1);
   initializePlayer(player2);
-  //player1.score:=0;
-  //player2.score:=0;
-
   aPlayer := player1;
   aPlayer.reset;
   Label1.Text := aPlayer.name;
@@ -117,10 +114,10 @@ end;
 procedure TfrmMain.GlyphTap(Sender: TObject);
 var
   i: integer;
-  s:string;
+  s: string;
 begin
   for i := 1 to 6 do
-  //select a die
+    // select a die
     if (aPlayer.diceCup[i].activeImage = (Sender as TGlyph)) then
     begin
       aPlayer.addDice(aPlayer.diceCup[i].value);
@@ -130,7 +127,7 @@ begin
         .imageIndex;
     end
     else if (aPlayer.diceCup[i].inactiveImage = (Sender as TGlyph)) then
-    //unselect a die
+    // unselect a die
     begin
       aPlayer.removeDice(aPlayer.diceCup[i].value);
       aPlayer.diceCup[i].isActive := true;
@@ -138,8 +135,10 @@ begin
       aPlayer.diceCup[i].activeImage.imageIndex := aPlayer.diceCup[i]
         .imageIndex;
     end;
-  s:=aPlayer.scoreTurn;
-  if s<>'' then Label1.Text:=s;
+  aPlayer.scoreTurn;
+  s := IntToStr(aPlayer.rollScore);
+  if s <> '' then
+    Label1.Text := s;
 end;
 
 procedure TfrmMain.initializePlayer(aPlayer: TPlayer);
@@ -181,6 +180,7 @@ begin
     player2.diceCup[5].activeImage := Glyph11;
     player2.diceCup[6].activeImage := Glyph12;
   end;
+  aPlayer.newGame;
 end;
 
 end.

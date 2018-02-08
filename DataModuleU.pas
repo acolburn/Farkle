@@ -43,17 +43,16 @@ type
     property name: string read fName write fName;
     property scoreCalculator: TScoreCalculator read fScoreCalculator
       write fScoreCalculator;
-    property turnScore: integer read fTurnScore; // read only
-    property gameScore: integer read fGameScore; // read only
-    property rollScore: integer read fRollScore; //read only
+    property turnScore: integer read fTurnScore write fTurnScore;
+    property gameScore: integer read fGameScore write fGameScore;
+    property rollScore: integer read fRollScore write fRollScore;
     constructor Create(aName: string); overload;
     destructor Destroy; override;
     procedure rollCup;
-    procedure reset;
+    procedure resetGameBoard;
     procedure scoreTurn;
     procedure addDice(aDiceValue: integer);
     procedure removeDice(aDiceValue: integer);
-    procedure newGame;
   end;
 
 var
@@ -84,6 +83,8 @@ begin
   inherited Create;
   fName := aName;
   fScoreCalculator := TScoreCalculator.Create;
+  fGameScore:=0;
+  fTurnScore:=0;
 end;
 
 destructor TPlayer.Destroy;
@@ -92,15 +93,8 @@ var
 begin
   for i := 1 to 6 do
     diceCup[i].Free;
-  // selectedDice.Free;
   fScoreCalculator.Free;
   inherited;
-end;
-
-procedure TPlayer.newGame;
-begin
-  fTurnScore := 0;
-  fGameScore := 0;
 end;
 
 procedure TPlayer.removeDice(aDiceValue: integer);
@@ -108,7 +102,7 @@ begin
   fScoreCalculator.selectedDice.Remove(aDiceValue);
 end;
 
-procedure TPlayer.reset;
+procedure TPlayer.resetGameBoard;
 var
   i: integer;
 begin
@@ -124,14 +118,13 @@ procedure TPlayer.rollCup;
 var
   i: integer;
 begin
-  fTurnScore:=fTurnScore+fRollScore;
   for i := 1 to 6 do
     if diceCup[i].isActive then
     begin
       diceCup[i].rollDice;
       diceCup[i].activeImage.imageIndex := diceCup[i].imageIndex;
     end;
-  // each roll is scored separately
+  // each roll is considered separately
   fScoreCalculator.selectedDice.Clear;
 end;
 

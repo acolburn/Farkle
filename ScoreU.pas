@@ -48,6 +48,7 @@ begin
   3:scoreThreeDice;
   2:scoreTwoDice;
   1:scoreOneDice(selectedDice[0]);
+  0:fRollScore:=0;
   end;
 
   result := fRollScore;

@@ -52,6 +52,9 @@ implementation
 
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
 begin
+  aPlayer.turnScore:=aPlayer.turnScore+aPlayer.rollScore;
+  aPlayer.gameScore:=aPlayer.gameScore+aPlayer.turnScore;
+  ShowMessage('Turn: '+IntToStr(aPlayer.turnScore)+' pts. Game: '+IntToStr(aPlayer.gameScore)+' total pts.');
   if (aPlayer = player1) then
   begin
     aPlayer := player2;
@@ -60,12 +63,17 @@ begin
   begin
     aPlayer := player1;
   end;
-  aPlayer.reset;
+  aPlayer.turnScore:=0;
+  aPlayer.rollScore:=0;
+  aPlayer.resetGameBoard;
   Label1.Text := aPlayer.name;
 end;
 
 procedure TfrmMain.btnRollClick(Sender: TObject);
 begin
+  aPlayer.turnScore:=aPlayer.turnScore+aPlayer.rollScore;
+  aPlayer.rollScore:=0;
+  ShowMessage('You scored '+IntToStr(aPlayer.turnScore)+' pts. on your turn.');
   aPlayer.rollCup;
 end;
 
@@ -82,7 +90,7 @@ begin
   initializePlayer(player1);
   initializePlayer(player2);
   aPlayer := player1;
-  aPlayer.reset;
+  aPlayer.resetGameBoard;
   Label1.Text := aPlayer.name;
 
   Glyph1.HitTest := true;
@@ -135,7 +143,8 @@ begin
       aPlayer.diceCup[i].activeImage.imageIndex := aPlayer.diceCup[i]
         .imageIndex;
     end;
-  aPlayer.scoreTurn;
+  aPlayer.scoreTurn; //calculates roll score
+  //display roll score
   s := IntToStr(aPlayer.rollScore);
   if s <> '' then
     Label1.Text := s;
@@ -180,7 +189,6 @@ begin
     player2.diceCup[5].activeImage := Glyph11;
     player2.diceCup[6].activeImage := Glyph12;
   end;
-  aPlayer.newGame;
 end;
 
 end.

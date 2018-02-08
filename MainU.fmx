@@ -24,7 +24,7 @@ object frmMain: TfrmMain
     Text = 'Roll'
     OnClick = btnRollClick
   end
-  object btnReset: TButton
+  object btnSwitch: TButton
     Anchors = [akRight, akBottom]
     Position.X = 632.000000000000000000
     Position.Y = 384.000000000000000000
@@ -33,7 +33,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     TabOrder = 1
     Text = 'Switch Player'
-    OnClick = btnResetClick
+    OnClick = btnSwitchClick
   end
   object GridPanelLayout1: TGridPanelLayout
     Align = Top

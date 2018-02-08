@@ -13,7 +13,7 @@ type
 
   TfrmMain = class(TForm)
     btnRoll: TButton;
-    btnReset: TButton;
+    btnSwitch: TButton;
     Glyph1: TGlyph;
     Glyph2: TGlyph;
     Glyph3: TGlyph;
@@ -32,7 +32,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnRollClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure btnResetClick(Sender: TObject);
+    procedure btnSwitchClick(Sender: TObject);
     procedure GlyphTap(Sender: TObject);
   private
     { Private declarations }
@@ -54,7 +54,7 @@ implementation
 {$R *.Macintosh.fmx MACOS}
 {$R *.LgXhdpiPh.fmx ANDROID}
 
-procedure TfrmMain.btnResetClick(Sender: TObject);
+procedure TfrmMain.btnSwitchClick(Sender: TObject);
 begin
   if (aPlayer = player1) then
     aPlayer := player2

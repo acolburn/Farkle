@@ -81,8 +81,8 @@ begin
   player2 := TPlayer.Create('Alan');
   initializePlayer(player1);
   initializePlayer(player2);
-  player1.score:=0;
-  player2.score:=0;
+  //player1.score:=0;
+  //player2.score:=0;
 
   aPlayer := player1;
   aPlayer.reset;
@@ -123,7 +123,7 @@ begin
   //select a die
     if (aPlayer.diceCup[i].activeImage = (Sender as TGlyph)) then
     begin
-      aPlayer.selectedDice.Add(aPlayer.diceCup[i].value);
+      aPlayer.addDice(aPlayer.diceCup[i].value);
       aPlayer.diceCup[i].isActive := false;
       aPlayer.diceCup[i].activeImage.imageIndex := -1;
       aPlayer.diceCup[i].inactiveImage.imageIndex := aPlayer.diceCup[i]
@@ -132,7 +132,7 @@ begin
     else if (aPlayer.diceCup[i].inactiveImage = (Sender as TGlyph)) then
     //unselect a die
     begin
-      aPlayer.selectedDice.Remove(aPlayer.diceCup[i].value);
+      aPlayer.removeDice(aPlayer.diceCup[i].value);
       aPlayer.diceCup[i].isActive := true;
       aPlayer.diceCup[i].inactiveImage.imageIndex := -1;
       aPlayer.diceCup[i].activeImage.imageIndex := aPlayer.diceCup[i]

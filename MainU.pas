@@ -52,9 +52,13 @@ implementation
 
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
 begin
-  aPlayer.turnScore:=aPlayer.turnScore+aPlayer.rollScore;
-  aPlayer.gameScore:=aPlayer.gameScore+aPlayer.turnScore;
-  Label1.Text:=aPlayer.name+'''s turn: '+IntToStr(aPlayer.turnScore)+' pts. Game: '+IntToStr(aPlayer.gameScore)+' total pts.';
+  aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
+  // Have to start with a 500+ pt roll
+  if (aPlayer.gameScore = 0) and (aPlayer.turnScore < 500) then
+    ShowMessage('You still need to roll at least 500 pts.')
+  else aPlayer.gameScore := aPlayer.gameScore + aPlayer.turnScore;
+  Label1.Text := aPlayer.name + '''s turn: ' + IntToStr(aPlayer.turnScore) +
+    ' pts. Game: ' + IntToStr(aPlayer.gameScore) + ' total pts.';
   if (aPlayer = player1) then
   begin
     aPlayer := player2;
@@ -63,17 +67,17 @@ begin
   begin
     aPlayer := player1;
   end;
-  aPlayer.turnScore:=0;
-  aPlayer.rollScore:=0;
+  aPlayer.turnScore := 0;
+  aPlayer.rollScore := 0;
   aPlayer.resetGameBoard;
-  //Label1.Text := aPlayer.name;
+  // Label1.Text := aPlayer.name;
 end;
 
 procedure TfrmMain.btnRollClick(Sender: TObject);
 begin
-  Label1.Text:=aPlayer.name+'''s turn';
-  aPlayer.turnScore:=aPlayer.turnScore+aPlayer.rollScore;
-  aPlayer.rollScore:=0;
+  Label1.Text := aPlayer.name + '''s turn';
+  aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
+  aPlayer.rollScore := 0;
   aPlayer.rollCup;
 end;
 
@@ -143,8 +147,8 @@ begin
       aPlayer.diceCup[i].activeImage.imageIndex := aPlayer.diceCup[i]
         .imageIndex;
     end;
-  aPlayer.scoreTurn; //calculates roll score
-  //display roll score
+  aPlayer.scoreTurn; // calculates roll score
+  // display roll score
   s := IntToStr(aPlayer.rollScore);
   if s <> '' then
     Label1.Text := s;

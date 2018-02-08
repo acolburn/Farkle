@@ -1,9 +1,6 @@
 unit DataModuleU;
-// TODO need to keep track of all dice selected through multiple turns
-// when all six dice have been selected, player is still alive and
-// they all need to be de-selected & the turn continue
 // TODO Farkle?
-// TODO first roll > 500
+
 
 interface
 

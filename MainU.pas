@@ -53,20 +53,18 @@ implementation
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
 begin
   aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
+  // Special Case:
   // Have to start with a 500+ pt roll
   if (aPlayer.gameScore = 0) and (aPlayer.turnScore < 500) then
     ShowMessage('You still need to roll at least 500 pts.')
-  else aPlayer.gameScore := aPlayer.gameScore + aPlayer.turnScore;
-  Label1.Text := aPlayer.name + '''s turn: ' + IntToStr(aPlayer.turnScore) +
+  else
+    aPlayer.gameScore := aPlayer.gameScore + aPlayer.turnScore;
+  Label1.Text := aPlayer.name + '''s turn results: ' + IntToStr(aPlayer.turnScore) +
     ' pts. Game: ' + IntToStr(aPlayer.gameScore) + ' total pts.';
   if (aPlayer = player1) then
-  begin
-    aPlayer := player2;
-  end
+    aPlayer := player2
   else
-  begin
     aPlayer := player1;
-  end;
   aPlayer.turnScore := 0;
   aPlayer.rollScore := 0;
   aPlayer.resetGameBoard;
@@ -74,10 +72,31 @@ begin
 end;
 
 procedure TfrmMain.btnRollClick(Sender: TObject);
+var
+  i: integer;
 begin
   Label1.Text := aPlayer.name + '''s turn';
   aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
   aPlayer.rollScore := 0;
+  // Special Case: player has selected all six dice, but is still alive
+  // First, find out if player's still alive
+  // If player's alive, then all dice in diceCup will have been selected
+  // so their .isActive property will be false.
+  if ((aPlayer.diceCup[1].isActive = false) and
+    (aPlayer.diceCup[2].isActive = false) and
+    (aPlayer.diceCup[3].isActive = false) and
+    (aPlayer.diceCup[4].isActive = false) and
+    (aPlayer.diceCup[5].isActive = false) and
+    (aPlayer.diceCup[6].isActive = false)) then
+    // make 'em all active again
+    for i := 1 to 6 do
+    begin
+      aPlayer.diceCup[i].isActive := true;
+      aPlayer.diceCup[i].inactiveImage.imageIndex := -1;
+      aPlayer.diceCup[i].activeImage.imageIndex := aPlayer.diceCup[i]
+        .imageIndex;
+    end;
+
   aPlayer.rollCup;
 end;
 

@@ -75,8 +75,8 @@ procedure TfrmMain.btnRollClick(Sender: TObject);
 var
   i: integer;
 begin
-  Label1.Text := aPlayer.name + '''s turn';
   aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
+  Label1.Text := aPlayer.name + '''s turn. Game: '+IntToStr(aPlayer.gameScore)+' pts. This turn: '+IntToStr(aPlayer.turnScore)+' pts.';
   aPlayer.rollScore := 0;
   // Special Case: player has selected all six dice, but is still alive
   // First, find out if player's still alive

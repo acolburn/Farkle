@@ -45,7 +45,7 @@ type
     property rollScore: integer read fRollScore write fRollScore;
     constructor Create(aName: string); overload;
     destructor Destroy; override;
-    procedure rollCup;
+    function rollCup: integer;
     procedure resetGameBoard;
     procedure scoreTurn;
     procedure addDice(aDiceValue: integer);
@@ -111,9 +111,9 @@ begin
   end;
 end;
 
-procedure TPlayer.rollCup;
+function TPlayer.rollCup: integer;
 var
-  i: integer;
+  i, farkleCheck: integer;
 begin
   for i := 1 to 6 do
     if diceCup[i].isActive then
@@ -121,8 +121,14 @@ begin
       diceCup[i].rollDice;
       diceCup[i].activeImage.imageIndex := diceCup[i].imageIndex;
     end;
-  // each roll is considered separately
   fScoreCalculator.selectedDice.Clear;
+  //Check for a Farkle by running the active dice through the score calculator
+  //it the score is 0, player rolled a Farkle!:
+  for I := 1 to 6 do
+    if diceCup[i].isActive then fScoreCalculator.selectedDice.Add(diceCup[i].value);
+  farkleCheck:=fScoreCalculator.scoreTurn;
+  fScoreCalculator.selectedDice.Clear;
+  if farkleCheck=0 then result:=0 else result:=-1; //reserving other possible outcomes...
 end;
 
 procedure TPlayer.scoreTurn;

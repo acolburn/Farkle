@@ -57,8 +57,9 @@ begin
     ShowMessage('You still need to roll at least 500 pts.')
   else
     aPlayer.gameScore := aPlayer.gameScore + aPlayer.turnScore;
-  Label1.Text := aPlayer.name + '''s turn results: ' + IntToStr(aPlayer.turnScore) +
-    ' pts. Game: ' + IntToStr(aPlayer.gameScore) + ' total pts.';
+  Label1.Text := aPlayer.name + '''s turn results: ' +
+    IntToStr(aPlayer.turnScore) + ' pts. Game: ' + IntToStr(aPlayer.gameScore) +
+    ' total pts.';
   if (aPlayer = player1) then
     aPlayer := player2
   else
@@ -74,7 +75,8 @@ var
   i: integer;
 begin
   aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
-  Label1.Text := aPlayer.name + '''s turn. Game: '+IntToStr(aPlayer.gameScore)+' pts. This turn: '+IntToStr(aPlayer.turnScore)+' pts.';
+  Label1.Text := aPlayer.name + '''s turn. Game: ' + IntToStr(aPlayer.gameScore)
+    + ' pts. This turn: ' + IntToStr(aPlayer.turnScore) + ' pts.';
   aPlayer.rollScore := 0;
   // Special Case: player has selected all six dice, but is still alive
   // First, find out if player's still alive
@@ -95,7 +97,13 @@ begin
         .imageIndex;
     end;
 
-  aPlayer.rollCup;
+  if aPlayer.rollCup = 0 then
+  begin
+    ShowMessage('Farkle!');
+    aPlayer.turnScore := 0;
+    btnSwitchClick(self);
+  end;
+
 end;
 
 procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);

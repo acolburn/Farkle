@@ -15,10 +15,10 @@ object frmMain: TfrmMain
   DesignerMasterStyle = 0
   object btnRoll: TButton
     Anchors = [akLeft, akBottom]
-    Position.X = 24.000000000000000000
-    Position.Y = 376.000000000000000000
-    Size.Width = 80.000000000000000000
-    Size.Height = 65.000000000000000000
+    Position.X = 16.000000000000000000
+    Position.Y = 352.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 89.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     Text = 'Roll'
@@ -26,10 +26,10 @@ object frmMain: TfrmMain
   end
   object btnSwitch: TButton
     Anchors = [akRight, akBottom]
-    Position.X = 632.000000000000000000
-    Position.Y = 384.000000000000000000
-    Size.Width = 80.000000000000000000
-    Size.Height = 54.000000000000000000
+    Position.X = 624.000000000000000000
+    Position.Y = 352.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 89.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
     Text = 'Switch Player'
@@ -44,22 +44,22 @@ object frmMain: TfrmMain
     TabOrder = 2
     ColumnCollection = <
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end>
     ControlCollection = <
       item
@@ -221,9 +221,9 @@ object frmMain: TfrmMain
     Anchors = [akLeft, akRight, akBottom]
     StyledSettings = [Family, Style, FontColor]
     Position.X = 128.000000000000000000
-    Position.Y = 376.000000000000000000
+    Position.Y = 352.000000000000000000
     Size.Width = 473.000000000000000000
-    Size.Height = 65.000000000000000000
+    Size.Height = 89.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 20.000000000000000000
     TextSettings.HorzAlign = Center
@@ -877,7 +877,7 @@ object frmMain: TfrmMain
             SourceRect.Bottom = 128.000000000000000000
           end>
       end>
-    Left = 360
-    Top = 312
+    Left = 560
+    Top = 272
   end
 end

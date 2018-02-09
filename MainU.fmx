@@ -221,9 +221,9 @@ object frmMain: TfrmMain
     Anchors = [akLeft, akRight, akBottom]
     StyledSettings = [Family, Style, FontColor]
     Position.X = 128.000000000000000000
-    Position.Y = 400.000000000000000000
+    Position.Y = 376.000000000000000000
     Size.Width = 473.000000000000000000
-    Size.Height = 41.000000000000000000
+    Size.Height = 65.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 20.000000000000000000
     TextSettings.HorzAlign = Center

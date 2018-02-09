@@ -47,8 +47,6 @@ var
 implementation
 
 {$R *.fmx}
-{$R *.Macintosh.fmx MACOS}
-{$R *.LgXhdpiPh.fmx ANDROID}
 
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
 begin

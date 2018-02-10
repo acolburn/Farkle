@@ -44,22 +44,22 @@ object frmMain: TfrmMain
     TabOrder = 2
     ColumnCollection = <
       item
-        Value = 16.666666666666660000
+        Value = 16.666666666666670000
       end
       item
-        Value = 16.666666666666660000
+        Value = 16.666666666666670000
       end
       item
-        Value = 16.666666666666660000
+        Value = 16.666666666666670000
       end
       item
-        Value = 16.666666666666660000
+        Value = 16.666666666666670000
       end
       item
-        Value = 16.666666666666660000
+        Value = 16.666666666666670000
       end
       item
-        Value = 16.666666666666660000
+        Value = 16.666666666666670000
       end>
     ControlCollection = <
       item

@@ -57,8 +57,8 @@ begin
     ShowMessage('You still need to roll at least 500 pts.')
   else
     aPlayer.gameScore := aPlayer.gameScore + aPlayer.turnScore;
-  Label1.Text := aPlayer.name + '''s turn results: ' +
-    IntToStr(aPlayer.turnScore) + ' pts. Game: ' + IntToStr(aPlayer.gameScore) +
+  Label1.Text := aPlayer.name + ' just earned ' +
+    IntToStr(aPlayer.turnScore) + ' pts. Game Total: ' + IntToStr(aPlayer.gameScore) +
     ' total pts.';
   if (aPlayer = player1) then
     aPlayer := player2
@@ -99,9 +99,12 @@ begin
 
   if aPlayer.rollCup = 0 then
   begin
-    ShowMessage('Farkle!');
+    ShowMessage('FARKLE!');
     aPlayer.turnScore := 0;
     btnSwitchClick(self);
+    Label1.Text := aPlayer.name + ' just FARKLED! ' +
+    'Game Total: ' + IntToStr(aPlayer.gameScore) +
+    ' total pts.(unchanged)';
   end;
 
 end;
@@ -151,7 +154,6 @@ end;
 procedure TfrmMain.GlyphTap(Sender: TObject);
 var
   i: integer;
-  s: string;
 begin
   for i := 1 to 6 do
     // select a die
@@ -174,9 +176,7 @@ begin
     end;
   aPlayer.scoreTurn; // calculates roll score
   // display roll score
-  s := IntToStr(aPlayer.rollScore);
-  if s <> '' then
-    Label1.Text := s;
+  Label1.Text:=IntToStr(aPlayer.rollScore)+' pts this roll.';
 end;
 
 procedure TfrmMain.initializePlayer(aPlayer: TPlayer);

@@ -67,7 +67,6 @@ begin
   aPlayer.turnScore := 0;
   aPlayer.rollScore := 0;
   aPlayer.resetGameBoard;
-  // Label1.Text := aPlayer.name;
 end;
 
 procedure TfrmMain.btnRollClick(Sender: TObject);
@@ -99,9 +98,9 @@ begin
 
   if aPlayer.rollCup = 0 then
   begin
-    ShowMessage(aPlayer.name + ' just FARKLED! ' +
-    'Game Total: ' + IntToStr(aPlayer.gameScore) +
-    ' total pts.(unchanged).');
+    ShowMessage(aPlayer.name + ' just FARKLED! ');
+    Label1.Text:=aPlayer.name+'''s turn. This turn (Farkle): 0 pts. Game: '+
+    IntToStr(aPlayer.gameScore)+' pts.';
     aPlayer.turnScore := 0;
   end;
 

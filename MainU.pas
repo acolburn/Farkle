@@ -99,12 +99,11 @@ begin
 
   if aPlayer.rollCup = 0 then
   begin
-    ShowMessage('FARKLE!');
+    ShowMessage(aPlayer.name + ' just FARKLED! ' +
+    'Game Total: ' + IntToStr(aPlayer.gameScore) +
+    ' total pts.(unchanged) Switching player.');
     aPlayer.turnScore := 0;
     btnSwitchClick(self);
-    Label1.Text := aPlayer.name + ' just FARKLED! ' +
-    'Game Total: ' + IntToStr(aPlayer.gameScore) +
-    ' total pts.(unchanged)';
   end;
 
 end;

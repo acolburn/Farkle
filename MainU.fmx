@@ -217,17 +217,43 @@ object frmMain: TfrmMain
       Images = ImageListMain
     end
   end
-  object Label1: TLabel
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
     Anchors = [akLeft, akRight, akBottom]
-    StyledSettings = [Family, Style, FontColor]
-    Position.X = 128.000000000000000000
-    Position.Y = 352.000000000000000000
-    Size.Width = 473.000000000000000000
-    Size.Height = 89.000000000000000000
-    Size.PlatformDefault = False
-    TextSettings.Font.Size = 20.000000000000000000
+    TabOrder = 5
+    TextSettings.Font.Size = 18.000000000000000000
     TextSettings.HorzAlign = Center
-    Text = 'Label1'
+    Position.X = 128.000000000000000000
+    Position.Y = 328.000000000000000000
+    Size.Width = 473.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family, Style, FontColor]
+    object GlowEffect1: TGlowEffect
+      Softness = 0.800000011920928900
+      GlowColor = claGold
+      Opacity = 0.899999976158142100
+      Enabled = False
+    end
+  end
+  object Edit2: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akLeft, akRight, akBottom]
+    TabOrder = 4
+    TextSettings.Font.Size = 18.000000000000000000
+    TextSettings.HorzAlign = Center
+    Position.X = 128.000000000000000000
+    Position.Y = 392.000000000000000000
+    Size.Width = 473.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family, Style, FontColor]
+    object GlowEffect2: TGlowEffect
+      Softness = 0.800000011920928900
+      GlowColor = claGold
+      Opacity = 0.899999976158142100
+      Enabled = False
+    end
   end
   object ImageListMain: TImageList
     Source = <
@@ -877,7 +903,7 @@ object frmMain: TfrmMain
             SourceRect.Bottom = 128.000000000000000000
           end>
       end>
-    Left = 560
+    Left = 680
     Top = 272
   end
 end

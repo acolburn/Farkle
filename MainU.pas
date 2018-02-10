@@ -7,7 +7,8 @@ uses
   System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, {System.ImageList,}
-  FMX.ImgList, DataModuleU, FMX.Layouts, System.ImageList;
+  FMX.ImgList, DataModuleU, FMX.Layouts, System.ImageList, FMX.Effects,
+  FMX.Edit;
 
 type
 
@@ -28,12 +29,16 @@ type
     Glyph12: TGlyph;
     GridPanelLayout1: TGridPanelLayout;
     ImageListMain: TImageList;
-    Label1: TLabel;
+    Edit1: TEdit;
+    GlowEffect1: TGlowEffect;
+    Edit2: TEdit;
+    GlowEffect2: TGlowEffect;
     procedure FormCreate(Sender: TObject);
     procedure btnRollClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnSwitchClick(Sender: TObject);
     procedure GlyphTap(Sender: TObject);
+    procedure displayText(aString: string);
   public
     aPlayer: TPlayer;
     player1: TPlayer;
@@ -54,19 +59,40 @@ begin
   // Special Case:
   // Have to start with a 500+ pt roll
   if (aPlayer.gameScore = 0) and (aPlayer.turnScore < 500) then
-    ShowMessage('NOTE: you still need a roll with at least 500 pts.')
+  begin
+    displayText( aPlayer.name + ' just earned 0 pts. Game Total: ' +
+      IntToStr(aPlayer.gameScore) + ' total pts.');
+    ShowMessage('NOTE: you still need a roll with at least 500 pts.');
+  end
   else
+  begin
     aPlayer.gameScore := aPlayer.gameScore + aPlayer.turnScore;
-  Label1.Text := aPlayer.name + ' just earned ' +
-    IntToStr(aPlayer.turnScore) + ' pts. Game Total: ' + IntToStr(aPlayer.gameScore) +
-    ' total pts.';
+    displayText( aPlayer.name + ' just earned ' + IntToStr(aPlayer.turnScore) +
+      ' pts. Game Total: ' + IntToStr(aPlayer.gameScore) + ' total pts.');
+  end;
   if (aPlayer = player1) then
-    aPlayer := player2
+  begin
+    aPlayer := player2;
+    GlowEffect2.Enabled:=true;;
+    GlowEffect1.Enabled:=false;
+  end
   else
+  begin
     aPlayer := player1;
+    GlowEffect1.Enabled:=true;
+    GlowEffect2.Enabled:=false;
+  end;
   aPlayer.turnScore := 0;
   aPlayer.rollScore := 0;
   aPlayer.resetGameBoard;
+end;
+
+procedure TfrmMain.displayText(aString: string);
+begin
+  if aPlayer = player1 then
+    Edit1.Text := aString
+  else if aPlayer = player2 then
+    Edit2.Text := aString;
 end;
 
 procedure TfrmMain.btnRollClick(Sender: TObject);
@@ -74,8 +100,9 @@ var
   i: integer;
 begin
   aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
-  Label1.Text := aPlayer.name + '''s turn. This turn: ' + IntToStr(aPlayer.turnScore) + ' pts. Game: ' +
-  IntToStr(aPlayer.gameScore) + ' pts.';
+  displayText( aPlayer.name + '''s turn. This turn: ' +
+    IntToStr(aPlayer.turnScore) + ' pts. Game: ' + IntToStr(aPlayer.gameScore)
+    + ' pts.');
   aPlayer.rollScore := 0;
   // Special Case: player has selected all six dice, but is still alive
   // First, find out if player's still alive
@@ -99,8 +126,8 @@ begin
   if aPlayer.rollCup = 0 then
   begin
     ShowMessage(aPlayer.name + ' just FARKLED! ');
-    Label1.Text:=aPlayer.name+'''s turn. This turn (Farkle): 0 pts. Game: '+
-    IntToStr(aPlayer.gameScore)+' pts.';
+    displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' +
+      IntToStr(aPlayer.gameScore) + ' pts.');
     aPlayer.turnScore := 0;
   end;
 
@@ -119,8 +146,10 @@ begin
   initializePlayer(player1);
   initializePlayer(player2);
   aPlayer := player1;
+  GlowEffect1.Enabled:=true;
   aPlayer.resetGameBoard;
-  Label1.Text := aPlayer.name;
+  Edit1.Text := player1.name;
+  Edit2.Text := player2.name;
 
   Glyph1.HitTest := true;
   Glyph1.OnClick := GlyphTap;
@@ -151,7 +180,7 @@ end;
 procedure TfrmMain.GlyphTap(Sender: TObject);
 var
   i: integer;
-  temp: Integer;
+  temp: integer;
 begin
   for i := 1 to 6 do
     // select a die
@@ -174,8 +203,8 @@ begin
     end;
   aPlayer.scoreTurn; // calculates roll score
   // display roll score for this turn
-  temp:=aPlayer.turnScore+aPlayer.rollScore;
-  Label1.Text:=IntToStr(temp)+' pts. this turn';
+  temp := aPlayer.turnScore + aPlayer.rollScore;
+  displayText(IntToStr(temp) + ' pts. this turn');
 end;
 
 procedure TfrmMain.initializePlayer(aPlayer: TPlayer);

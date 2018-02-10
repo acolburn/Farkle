@@ -54,7 +54,7 @@ begin
   // Special Case:
   // Have to start with a 500+ pt roll
   if (aPlayer.gameScore = 0) and (aPlayer.turnScore < 500) then
-    ShowMessage('You still need to roll at least 500 pts.')
+    ShowMessage('You still need a roll with at least 500 pts.')
   else
     aPlayer.gameScore := aPlayer.gameScore + aPlayer.turnScore;
   Label1.Text := aPlayer.name + ' just earned ' +
@@ -101,9 +101,8 @@ begin
   begin
     ShowMessage(aPlayer.name + ' just FARKLED! ' +
     'Game Total: ' + IntToStr(aPlayer.gameScore) +
-    ' total pts.(unchanged) Switching player.');
+    ' total pts.(unchanged).');
     aPlayer.turnScore := 0;
-    btnSwitchClick(self);
   end;
 
 end;

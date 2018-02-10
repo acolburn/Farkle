@@ -54,7 +54,7 @@ begin
   // Special Case:
   // Have to start with a 500+ pt roll
   if (aPlayer.gameScore = 0) and (aPlayer.turnScore < 500) then
-    ShowMessage('You still need a roll with at least 500 pts.')
+    ShowMessage('NOTE: you still need a roll with at least 500 pts.')
   else
     aPlayer.gameScore := aPlayer.gameScore + aPlayer.turnScore;
   Label1.Text := aPlayer.name + ' just earned ' +
@@ -75,8 +75,8 @@ var
   i: integer;
 begin
   aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
-  Label1.Text := aPlayer.name + '''s turn. Game: ' + IntToStr(aPlayer.gameScore)
-    + ' pts. This turn: ' + IntToStr(aPlayer.turnScore) + ' pts.';
+  Label1.Text := aPlayer.name + '''s turn. This turn: ' + IntToStr(aPlayer.turnScore) + ' pts. Game: ' +
+  IntToStr(aPlayer.gameScore) + ' pts.';
   aPlayer.rollScore := 0;
   // Special Case: player has selected all six dice, but is still alive
   // First, find out if player's still alive
@@ -152,6 +152,7 @@ end;
 procedure TfrmMain.GlyphTap(Sender: TObject);
 var
   i: integer;
+  temp: Integer;
 begin
   for i := 1 to 6 do
     // select a die
@@ -173,8 +174,9 @@ begin
         .imageIndex;
     end;
   aPlayer.scoreTurn; // calculates roll score
-  // display roll score
-  Label1.Text:=IntToStr(aPlayer.rollScore)+' pts this roll.';
+  // display roll score for this turn
+  temp:=aPlayer.turnScore+aPlayer.rollScore;
+  Label1.Text:=IntToStr(temp)+' pts. this turn';
 end;
 
 procedure TfrmMain.initializePlayer(aPlayer: TPlayer);

@@ -27,12 +27,15 @@ type
     Glyph10: TGlyph;
     Glyph11: TGlyph;
     Glyph12: TGlyph;
-    GridPanelLayout1: TGridPanelLayout;
+    GridPanelLayoutDice: TGridPanelLayout;
     ImageListMain: TImageList;
     Edit1: TEdit;
     GlowEffect1: TGlowEffect;
     Edit2: TEdit;
     GlowEffect2: TGlowEffect;
+    GridPanelLayoutEditBoxes: TGridPanelLayout;
+    GridPanelLayoutMain: TGridPanelLayout;
+    GridPanelLayoutButtons: TGridPanelLayout;
     procedure FormCreate(Sender: TObject);
     procedure btnRollClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

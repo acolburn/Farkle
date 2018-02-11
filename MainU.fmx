@@ -230,7 +230,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     StyledSettings = [Family, Style, FontColor]
     object GlowEffect1: TGlowEffect
-      Softness = 0.800000011920928900
+      Softness = 0.800000011920929000
       GlowColor = claGold
       Opacity = 0.899999976158142100
       Enabled = False
@@ -249,7 +249,7 @@ object frmMain: TfrmMain
     Size.PlatformDefault = False
     StyledSettings = [Family, Style, FontColor]
     object GlowEffect2: TGlowEffect
-      Softness = 0.800000011920928900
+      Softness = 0.800000011920929000
       GlowColor = claGold
       Opacity = 0.899999976158142100
       Enabled = False

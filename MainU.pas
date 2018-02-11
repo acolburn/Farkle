@@ -62,7 +62,7 @@ begin
   begin
     displayText( aPlayer.name + ' just earned 0 pts. Game Total: ' +
       IntToStr(aPlayer.gameScore) + ' total pts.');
-    ShowMessage('NOTE: you still need a roll with at least 500 pts.');
+    ShowMessage('NOTE: '+aPlayer.name+' still needs a roll with at least 500 pts.');
   end
   else
   begin

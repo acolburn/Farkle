@@ -1,0 +1,74 @@
+inherited frmMain_LgXhdpiPh: TfrmMain_LgXhdpiPh
+  ClientHeight = 695
+  ClientWidth = 450
+  DesignerMasterStyle = 3
+  inherited GridPanelLayoutMain: TGridPanelLayout
+    Size.Width = 450.000000000000000000
+    Size.Height = 695.000000000000000000
+    inherited GridPanelLayout1: TGridPanelLayout
+      Size.Width = 450.000000000000000000
+      Size.Height = 350.108306884765600000
+      inherited Glyph1: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+      inherited Glyph2: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+      inherited Glyph3: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+      inherited Glyph4: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+      inherited Glyph5: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+      inherited Glyph6: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+      inherited Glyph7: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+      inherited Glyph8: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+      inherited Glyph9: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+      inherited Glyph10: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+      inherited Glyph11: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+      inherited Glyph12: TGlyph
+        Size.Width = 75.000000000000000000
+        Size.Height = 175.054153442382800000
+      end
+    end
+    inherited LayoutButtons: TLayout
+      Size.Width = 450.000000000000000000
+      Size.Height = 112.034667968750000000
+      inherited btnRoll: TButton
+        Size.Width = 361.979125976562500000
+        Size.Height = 112.034667968750000000
+      end
+      inherited btnSwitch: TButton
+        Position.X = 88.020874023437500000
+        Size.Width = 361.979125976562500000
+        Size.Height = 112.034667968750000000
+      end
+    end
+  end
+end

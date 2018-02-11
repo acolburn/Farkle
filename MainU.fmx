@@ -13,296 +13,246 @@ object frmMain: TfrmMain
   Left = 275
   Top = 236
   DesignerMasterStyle = 0
-  object GridPanelLayoutMain: TGridPanelLayout
-    Align = Client
+  object btnRoll: TButton
+    Anchors = [akLeft, akBottom]
+    Position.X = 16.000000000000000000
+    Position.Y = 352.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 89.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Roll'
+    OnClick = btnRollClick
+  end
+  object btnSwitch: TButton
+    Anchors = [akRight, akBottom]
+    Position.X = 624.000000000000000000
+    Position.Y = 352.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 89.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Switch Player'
+    OnClick = btnSwitchClick
+  end
+  object GridPanelLayout1: TGridPanelLayout
+    Align = Top
+    Anchors = []
     Size.Width = 742.000000000000000000
-    Size.Height = 480.000000000000000000
+    Size.Height = 265.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
     ColumnCollection = <
       item
-        Value = 100.000000000000000000
+        Value = 16.666666666666670000
+      end
+      item
+        Value = 16.666666666666670000
+      end
+      item
+        Value = 16.666666666666670000
+      end
+      item
+        Value = 16.666666666666670000
+      end
+      item
+        Value = 16.666666666666670000
+      end
+      item
+        Value = 16.666666666666670000
       end>
     ControlCollection = <
       item
         Column = 0
-        Control = GridPanelLayout1
+        Control = Glyph1
+        Row = 0
+      end
+      item
+        Column = 1
+        Control = Glyph2
+        Row = 0
+      end
+      item
+        Column = 2
+        Control = Glyph3
+        Row = 0
+      end
+      item
+        Column = 3
+        Control = Glyph4
+        Row = 0
+      end
+      item
+        Column = 4
+        Control = Glyph5
+        Row = 0
+      end
+      item
+        Column = 5
+        Control = Glyph6
         Row = 0
       end
       item
         Column = 0
-        Control = Edit1
+        Control = Glyph7
         Row = 1
       end
       item
-        Column = 0
-        Control = Edit2
-        Row = 2
+        Column = 1
+        Control = Glyph8
+        Row = 1
       end
       item
-        Column = 0
-        Control = LayoutButtons
-        Row = 3
+        Column = 2
+        Control = Glyph9
+        Row = 1
+      end
+      item
+        Column = 3
+        Control = Glyph10
+        Row = 1
+      end
+      item
+        Column = 4
+        Control = Glyph11
+        Row = 1
+      end
+      item
+        Column = 5
+        Control = Glyph12
+        Row = 1
       end>
     RowCollection = <
       item
-        Value = 50.375295954863730000
+        Value = 50.000000000000000000
       end
       item
-        Value = 17.832854768021760000
-      end
-      item
-        Value = 15.671754571558110000
-      end
-      item
-        Value = 16.120094705556390000
+        Value = 50.000000000000000000
       end
       item
         SizeStyle = Auto
       end>
-    object GridPanelLayout1: TGridPanelLayout
+    object Glyph1: TGlyph
       Align = Client
-      Size.Width = 742.000000000000000000
-      Size.Height = 241.801422119140600000
+      Size.Width = 123.666664123535200000
+      Size.Height = 132.500000000000000000
       Size.PlatformDefault = False
-      TabOrder = 0
-      ColumnCollection = <
-        item
-          Value = 16.666666666666660000
-        end
-        item
-          Value = 16.666666666666660000
-        end
-        item
-          Value = 16.666666666666660000
-        end
-        item
-          Value = 16.666666666666660000
-        end
-        item
-          Value = 16.666666666666660000
-        end
-        item
-          Value = 16.666666666666660000
-        end>
-      ControlCollection = <
-        item
-          Column = 0
-          Control = Glyph1
-          Row = 0
-        end
-        item
-          Column = 1
-          Control = Glyph2
-          Row = 0
-        end
-        item
-          Column = 2
-          Control = Glyph3
-          Row = 0
-        end
-        item
-          Column = 3
-          Control = Glyph4
-          Row = 0
-        end
-        item
-          Column = 4
-          Control = Glyph5
-          Row = 0
-        end
-        item
-          Column = 5
-          Control = Glyph6
-          Row = 0
-        end
-        item
-          Column = 0
-          Control = Glyph7
-          Row = 1
-        end
-        item
-          Column = 1
-          Control = Glyph8
-          Row = 1
-        end
-        item
-          Column = 2
-          Control = Glyph9
-          Row = 1
-        end
-        item
-          Column = 3
-          Control = Glyph10
-          Row = 1
-        end
-        item
-          Column = 4
-          Control = Glyph11
-          Row = 1
-        end
-        item
-          Column = 5
-          Control = Glyph12
-          Row = 1
-        end>
-      RowCollection = <
-        item
-          Value = 50.000000000000000000
-        end
-        item
-          Value = 50.000000000000000000
-        end
-        item
-          SizeStyle = Auto
-        end>
-      object Glyph1: TGlyph
-        Align = Client
-        Size.Width = 123.666664123535200000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
-      object Glyph2: TGlyph
-        Align = Client
-        Size.Width = 123.666664123535200000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
-      object Glyph3: TGlyph
-        Align = Client
-        Size.Width = 123.666671752929700000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
-      object Glyph4: TGlyph
-        Align = Client
-        Size.Width = 123.666656494140600000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
-      object Glyph5: TGlyph
-        Align = Client
-        Size.Width = 123.666656494140600000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
-      object Glyph6: TGlyph
-        Align = Client
-        Size.Width = 123.666687011718800000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
-      object Glyph7: TGlyph
-        Align = Client
-        Size.Width = 123.666664123535200000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
-      object Glyph8: TGlyph
-        Align = Client
-        Size.Width = 123.666664123535200000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
-      object Glyph9: TGlyph
-        Align = Client
-        Size.Width = 123.666671752929700000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
-      object Glyph10: TGlyph
-        Align = Client
-        Size.Width = 123.666656494140600000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
-      object Glyph11: TGlyph
-        Align = Client
-        Size.Width = 123.666656494140600000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
-      object Glyph12: TGlyph
-        Align = Client
-        Size.Width = 123.666687011718800000
-        Size.Height = 120.900711059570300000
-        Size.PlatformDefault = False
-        Images = ImageListMain
-      end
+      Images = ImageListMain
     end
-    object Edit1: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      Align = Center
-      TabOrder = 1
-      TextSettings.Font.Size = 18.000000000000000000
-      TextSettings.HorzAlign = Center
-      Size.Width = 473.000000000000000000
-      Size.Height = 32.000000000000000000
+    object Glyph2: TGlyph
+      Align = Client
+      Size.Width = 123.666664123535200000
+      Size.Height = 132.500000000000000000
       Size.PlatformDefault = False
-      StyledSettings = [Family, Style, FontColor]
-      object GlowEffect1: TGlowEffect
-        Softness = 0.800000011920929000
-        GlowColor = claGold
-        Opacity = 0.899999976158142100
-        Enabled = False
-      end
+      Images = ImageListMain
     end
-    object Edit2: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      Align = Center
-      TabOrder = 2
-      TextSettings.Font.Size = 18.000000000000000000
-      TextSettings.HorzAlign = Center
-      Size.Width = 473.000000000000000000
-      Size.Height = 32.000000000000000000
+    object Glyph3: TGlyph
+      Align = Client
+      Size.Width = 123.666671752929700000
+      Size.Height = 132.500000000000000000
       Size.PlatformDefault = False
-      StyledSettings = [Family, Style, FontColor]
-      object GlowEffect2: TGlowEffect
-        Softness = 0.800000011920929000
-        GlowColor = claGold
-        Opacity = 0.899999976158142100
-        Enabled = False
-      end
+      Images = ImageListMain
     end
-    object LayoutButtons: TLayout
-      Align = Scale
-      Position.Y = 402.623535156250000000
-      Size.Width = 742.000000000000000000
-      Size.Height = 77.376464843750000000
+    object Glyph4: TGlyph
+      Align = Client
+      Size.Width = 123.666656494140600000
+      Size.Height = 132.500000000000000000
       Size.PlatformDefault = False
-      TabOrder = 3
-      object btnRoll: TButton
-        Align = Scale
-        Padding.Right = 20.000000000000000000
-        Size.Width = 230.000000000000000000
-        Size.Height = 77.376464843750000000
-        Size.PlatformDefault = False
-        TabOrder = 0
-        Text = 'Roll'
-        OnClick = btnRollClick
-      end
-      object btnSwitch: TButton
-        Align = Scale
-        Padding.Left = 20.000000000000000000
-        Position.X = 512.000000000000000000
-        Size.Width = 230.000000000000000000
-        Size.Height = 77.376464843750000000
-        Size.PlatformDefault = False
-        TabOrder = 1
-        Text = 'Switch Player'
-        OnClick = btnSwitchClick
-      end
+      Images = ImageListMain
+    end
+    object Glyph5: TGlyph
+      Align = Client
+      Size.Width = 123.666656494140600000
+      Size.Height = 132.500000000000000000
+      Size.PlatformDefault = False
+      Images = ImageListMain
+    end
+    object Glyph6: TGlyph
+      Align = Client
+      Size.Width = 123.666687011718800000
+      Size.Height = 132.500000000000000000
+      Size.PlatformDefault = False
+      Images = ImageListMain
+    end
+    object Glyph7: TGlyph
+      Align = Client
+      Size.Width = 123.666664123535200000
+      Size.Height = 132.500000000000000000
+      Size.PlatformDefault = False
+      Images = ImageListMain
+    end
+    object Glyph8: TGlyph
+      Align = Client
+      Size.Width = 123.666664123535200000
+      Size.Height = 132.500000000000000000
+      Size.PlatformDefault = False
+      Images = ImageListMain
+    end
+    object Glyph9: TGlyph
+      Align = Client
+      Size.Width = 123.666671752929700000
+      Size.Height = 132.500000000000000000
+      Size.PlatformDefault = False
+      Images = ImageListMain
+    end
+    object Glyph10: TGlyph
+      Align = Client
+      Size.Width = 123.666656494140600000
+      Size.Height = 132.500000000000000000
+      Size.PlatformDefault = False
+      Images = ImageListMain
+    end
+    object Glyph11: TGlyph
+      Align = Client
+      Size.Width = 123.666656494140600000
+      Size.Height = 132.500000000000000000
+      Size.PlatformDefault = False
+      Images = ImageListMain
+    end
+    object Glyph12: TGlyph
+      Align = Client
+      Size.Width = 123.666687011718800000
+      Size.Height = 132.500000000000000000
+      Size.PlatformDefault = False
+      Images = ImageListMain
+    end
+  end
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akLeft, akRight, akBottom]
+    TabOrder = 5
+    TextSettings.Font.Size = 18.000000000000000000
+    TextSettings.HorzAlign = Center
+    Position.X = 128.000000000000000000
+    Position.Y = 328.000000000000000000
+    Size.Width = 473.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family, Style, FontColor]
+    object GlowEffect1: TGlowEffect
+      Softness = 0.800000011920928900
+      GlowColor = claGold
+      Opacity = 0.899999976158142100
+      Enabled = False
+    end
+  end
+  object Edit2: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Anchors = [akLeft, akRight, akBottom]
+    TabOrder = 4
+    TextSettings.Font.Size = 18.000000000000000000
+    TextSettings.HorzAlign = Center
+    Position.X = 128.000000000000000000
+    Position.Y = 392.000000000000000000
+    Size.Width = 473.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family, Style, FontColor]
+    object GlowEffect2: TGlowEffect
+      Softness = 0.800000011920928900
+      GlowColor = claGold
+      Opacity = 0.899999976158142100
+      Enabled = False
     end
   end
   object ImageListMain: TImageList

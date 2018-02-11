@@ -33,8 +33,6 @@ type
     GlowEffect1: TGlowEffect;
     Edit2: TEdit;
     GlowEffect2: TGlowEffect;
-    GridPanelLayoutMain: TGridPanelLayout;
-    LayoutButtons: TLayout;
     procedure FormCreate(Sender: TObject);
     procedure btnRollClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -54,7 +52,6 @@ var
 implementation
 
 {$R *.fmx}
-{$R *.LgXhdpiPh.fmx ANDROID}
 
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
 begin

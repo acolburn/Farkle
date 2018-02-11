@@ -276,14 +276,16 @@ object frmMain: TfrmMain
       end
     end
     object LayoutButtons: TLayout
-      Align = Client
+      Align = Scale
+      Position.Y = 402.623535156250000000
       Size.Width = 742.000000000000000000
       Size.Height = 77.376464843750000000
       Size.PlatformDefault = False
       TabOrder = 3
       object btnRoll: TButton
-        Align = FitLeft
-        Size.Width = 250.000000000000000000
+        Align = Scale
+        Padding.Right = 20.000000000000000000
+        Size.Width = 230.000000000000000000
         Size.Height = 77.376464843750000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -291,9 +293,10 @@ object frmMain: TfrmMain
         OnClick = btnRollClick
       end
       object btnSwitch: TButton
-        Align = FitRight
-        Position.X = 492.000000000000000000
-        Size.Width = 250.000000000000000000
+        Align = Scale
+        Padding.Left = 20.000000000000000000
+        Position.X = 512.000000000000000000
+        Size.Width = 230.000000000000000000
         Size.Height = 77.376464843750000000
         Size.PlatformDefault = False
         TabOrder = 1

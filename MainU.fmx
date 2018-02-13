@@ -60,22 +60,22 @@ object frmMain: TfrmMain
       TabOrder = 0
       ColumnCollection = <
         item
-          Value = 16.666666666666660000
+          Value = 16.666666666666670000
         end
         item
-          Value = 16.666666666666660000
+          Value = 16.666666666666670000
         end
         item
-          Value = 16.666666666666660000
+          Value = 16.666666666666670000
         end
         item
-          Value = 16.666666666666660000
+          Value = 16.666666666666670000
         end
         item
-          Value = 16.666666666666660000
+          Value = 16.666666666666670000
         end
         item
-          Value = 16.666666666666660000
+          Value = 16.666666666666670000
         end>
       ControlCollection = <
         item
@@ -1016,5 +1016,9 @@ object frmMain: TfrmMain
       end>
     Left = 680
     Top = 272
+  end
+  object MediaPlayer1: TMediaPlayer
+    Left = 352
+    Top = 224
   end
 end

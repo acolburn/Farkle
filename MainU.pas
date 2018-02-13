@@ -8,7 +8,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, {System.ImageList,}
   FMX.ImgList, DataModuleU, FMX.Layouts, System.ImageList, FMX.Effects,
-  FMX.Edit;
+  FMX.Edit, FMX.Media;
 
 type
 
@@ -36,6 +36,7 @@ type
     GridPanelLayoutEditBoxes: TGridPanelLayout;
     GridPanelLayoutMain: TGridPanelLayout;
     GridPanelLayoutButtons: TGridPanelLayout;
+    MediaPlayer1: TMediaPlayer;
     procedure FormCreate(Sender: TObject);
     procedure btnRollClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -102,6 +103,8 @@ procedure TfrmMain.btnRollClick(Sender: TObject);
 var
   i: integer;
 begin
+  MediaPlayer1.Tag:=0; //using to indicate whether MediaPlayer's played during turn
+                       //only want it to play once, at which point tag:=1;
   aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
   displayText( aPlayer.name + '''s turn. This turn: ' +
     IntToStr(aPlayer.turnScore) + ' pts. Game: ' + IntToStr(aPlayer.gameScore)
@@ -128,7 +131,9 @@ begin
 
   if aPlayer.rollCup = 0 then
   begin
-    ShowMessage(aPlayer.name + ' just FARKLED! ');
+    //ShowMessage(aPlayer.name + ' just FARKLED! ');
+    MediaPlayer1.FileName:='farkle3.mp3';
+    MediaPlayer1.Play;
     displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' +
       IntToStr(aPlayer.gameScore) + ' pts.');
     aPlayer.turnScore := 0;
@@ -208,6 +213,13 @@ begin
   // display roll score for this turn
   temp := aPlayer.turnScore + aPlayer.rollScore;
   displayText(IntToStr(temp) + ' pts. this turn');
+  //get excited
+  if (aPlayer.rollScore>600) and (MediaPlayer1.Tag=0) then  //tag=0 when MediaPlayer hasn't played yet this turn
+  begin
+    MediaPlayer1.FileName:='excited1.mp3';
+    MediaPlayer1.Play;
+    MediaPlayer1.Tag:=1;
+  end;
 end;
 
 procedure TfrmMain.initializePlayer(aPlayer: TPlayer);

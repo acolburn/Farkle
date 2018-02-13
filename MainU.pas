@@ -52,7 +52,7 @@ var
 implementation
 
 {$R *.fmx}
-{$R *.LgXhdpiPh.fmx ANDROID}
+//{$R *.LgXhdpiPh.fmx ANDROID}
 
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
 begin

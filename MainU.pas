@@ -27,15 +27,12 @@ type
     Glyph10: TGlyph;
     Glyph11: TGlyph;
     Glyph12: TGlyph;
-    GridPanelLayoutDice: TGridPanelLayout;
     ImageListMain: TImageList;
     Edit1: TEdit;
     GlowEffect1: TGlowEffect;
     Edit2: TEdit;
     GlowEffect2: TGlowEffect;
-    GridPanelLayoutEditBoxes: TGridPanelLayout;
-    GridPanelLayoutMain: TGridPanelLayout;
-    GridPanelLayoutButtons: TGridPanelLayout;
+    GridPanelLayout1: TGridPanelLayout;
     procedure FormCreate(Sender: TObject);
     procedure btnRollClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -55,6 +52,7 @@ var
 implementation
 
 {$R *.fmx}
+{$R *.LgXhdpiPh.fmx ANDROID}
 
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
 begin

@@ -279,7 +279,7 @@ object frmMain: TfrmMain
         Size.PlatformDefault = False
         StyledSettings = [Family, Style, FontColor]
         object GlowEffect1: TGlowEffect
-          Softness = 0.800000011920929000
+          Softness = 0.800000011920928900
           GlowColor = claGold
           Opacity = 0.899999976158142100
           Enabled = False
@@ -300,7 +300,7 @@ object frmMain: TfrmMain
         Size.PlatformDefault = False
         StyledSettings = [Family, Style, FontColor]
         object GlowEffect2: TGlowEffect
-          Softness = 0.800000011920929000
+          Softness = 0.800000011920928900
           GlowColor = claGold
           Opacity = 0.899999976158142100
           Enabled = False
@@ -311,7 +311,7 @@ object frmMain: TfrmMain
       Align = Client
       Anchors = []
       Size.Width = 735.000000000000000000
-      Size.Height = 80.754791259765630000
+      Size.Height = 80.754791259765620000
       Size.PlatformDefault = False
       TabOrder = 2
       ColumnCollection = <
@@ -344,7 +344,7 @@ object frmMain: TfrmMain
         Margins.Right = 10.000000000000000000
         Margins.Bottom = 10.000000000000000000
         Size.Width = 347.500000000000000000
-        Size.Height = 60.754791259765630000
+        Size.Height = 60.754791259765620000
         Size.PlatformDefault = False
         TabOrder = 0
         Text = 'Roll'
@@ -358,13 +358,17 @@ object frmMain: TfrmMain
         Margins.Right = 10.000000000000000000
         Margins.Bottom = 10.000000000000000000
         Size.Width = 347.500000000000000000
-        Size.Height = 60.754791259765630000
+        Size.Height = 60.754791259765620000
         Size.PlatformDefault = False
         TabOrder = 1
         Text = 'Switch Player'
         OnClick = btnSwitchClick
       end
     end
+  end
+  object MediaPlayer1: TMediaPlayer
+    Left = 352
+    Top = 224
   end
   object ImageListMain: TImageList
     Source = <
@@ -1016,9 +1020,5 @@ object frmMain: TfrmMain
       end>
     Left = 680
     Top = 272
-  end
-  object MediaPlayer1: TMediaPlayer
-    Left = 352
-    Top = 224
   end
 end

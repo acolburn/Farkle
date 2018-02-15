@@ -130,7 +130,10 @@ begin
   if aPlayer.rollCup = 0 then
   begin
     //ShowMessage(aPlayer.name + ' just FARKLED! ');
-    MediaPlayer1.FileName:='farkle3.mp3';
+    i:=random(3);
+    if i=0 then MediaPlayer1.FileName:='farkle1.mp3'
+    else if i=1 then MediaPlayer1.FileName:='farkle2.mp3'
+    else if i=2 then MediaPlayer1.FileName:='farkle3.mp3';
     MediaPlayer1.Play;
     displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' +
       IntToStr(aPlayer.gameScore) + ' pts.');

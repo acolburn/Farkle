@@ -1,0 +1,4 @@
+.\assets\internal\farkle1.mp3
+.\assets\internal\farkle2.mp3
+.\assets\internal\excited1.mp3
+.\assets\internal\farkle3.mp3

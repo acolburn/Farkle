@@ -53,7 +53,7 @@ var
 implementation
 
 {$R *.fmx}
-//{$R *.LgXhdpiPh.fmx ANDROID}
+uses System.IOUtils;
 
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
 begin
@@ -131,9 +131,9 @@ begin
   begin
     //ShowMessage(aPlayer.name + ' just FARKLED! ');
     i:=random(3);
-    if i=0 then MediaPlayer1.FileName:='farkle1.mp3'
-    else if i=1 then MediaPlayer1.FileName:='farkle2.mp3'
-    else if i=2 then MediaPlayer1.FileName:='farkle3.mp3';
+    if i=0 then MediaPlayer1.FileName:=TPath.GetDocumentsPath + PathDelim +'farkle1.mp3'
+    else if i=1 then MediaPlayer1.FileName:=TPath.GetDocumentsPath + PathDelim +'farkle2.mp3'
+    else if i=2 then MediaPlayer1.FileName:=TPath.GetDocumentsPath + PathDelim +'farkle3.mp3';
     MediaPlayer1.Play;
     displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' +
       IntToStr(aPlayer.gameScore) + ' pts.');
@@ -217,7 +217,7 @@ begin
   //get excited
   if (aPlayer.rollScore>600) and (MediaPlayer1.Tag=0) then  //tag=0 when MediaPlayer hasn't played yet this turn
   begin
-    MediaPlayer1.FileName:='excited1.mp3';
+    MediaPlayer1.FileName:=TPath.GetDocumentsPath + PathDelim +'excited1.mp3';
     MediaPlayer1.Play;
     MediaPlayer1.Tag:=1;
   end;

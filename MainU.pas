@@ -43,7 +43,7 @@ type
     aPlayer: TPlayer;
     player1: TPlayer;
     player2: TPlayer;
-    procedure initializePlayer(aPlayer: TPlayer);
+    procedure initializePlayer(_Player: TPlayer);
   end;
 
 var
@@ -145,17 +145,17 @@ end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
+  //Setup game
   randomize;
   player1 := TPlayer.Create('Laura');
   player2 := TPlayer.Create('Alan');
   initializePlayer(player1);
   initializePlayer(player2);
   aPlayer := player1;
+  //Setup board
   GlowEffect1.Enabled:=true;
   aPlayer.resetGameBoard;
-  Edit1.Text := player1.name;
-  Edit2.Text := player2.name;
-
+  //Setup tablet and phone code
   Glyph1.HitTest := true;
   Glyph1.OnClick := GlyphTap;
   Glyph2.HitTest := true;
@@ -219,45 +219,49 @@ begin
   end;
 end;
 
-procedure TfrmMain.initializePlayer(aPlayer: TPlayer);
+procedure TfrmMain.initializePlayer(_Player: TPlayer);
 var
   i: integer;
 begin
   for i := 1 to 6 do
   begin
-    aPlayer.diceCup[i] := TDice.Create;
-    aPlayer.diceCup[i].isActive := true;
+    _Player.diceCup[i] := TDice.Create;
+    _Player.diceCup[i].isActive := true;
   end;
-  if (aPlayer = player1) then
+  if (_Player = player1) then
   begin
-    aPlayer.diceCup[1].activeImage := Glyph1;
-    aPlayer.diceCup[2].activeImage := Glyph2;
-    aPlayer.diceCup[3].activeImage := Glyph3;
-    aPlayer.diceCup[4].activeImage := Glyph4;
-    aPlayer.diceCup[5].activeImage := Glyph5;
-    aPlayer.diceCup[6].activeImage := Glyph6;
-    aPlayer.diceCup[1].inactiveImage := Glyph7;
-    aPlayer.diceCup[2].inactiveImage := Glyph8;
-    aPlayer.diceCup[3].inactiveImage := Glyph9;
-    aPlayer.diceCup[4].inactiveImage := Glyph10;
-    aPlayer.diceCup[5].inactiveImage := Glyph11;
-    aPlayer.diceCup[6].inactiveImage := Glyph12;
+    _Player.diceCup[1].activeImage := Glyph1;
+    _Player.diceCup[2].activeImage := Glyph2;
+    _Player.diceCup[3].activeImage := Glyph3;
+    _Player.diceCup[4].activeImage := Glyph4;
+    _Player.diceCup[5].activeImage := Glyph5;
+    _Player.diceCup[6].activeImage := Glyph6;
+    _Player.diceCup[1].inactiveImage := Glyph7;
+    _Player.diceCup[2].inactiveImage := Glyph8;
+    _Player.diceCup[3].inactiveImage := Glyph9;
+    _Player.diceCup[4].inactiveImage := Glyph10;
+    _Player.diceCup[5].inactiveImage := Glyph11;
+    _Player.diceCup[6].inactiveImage := Glyph12;
   end
-  else if (aPlayer = player2) then
+  else if (_Player = player2) then
   begin
-    player2.diceCup[1].inactiveImage := Glyph1;
-    player2.diceCup[2].inactiveImage := Glyph2;
-    player2.diceCup[3].inactiveImage := Glyph3;
-    player2.diceCup[4].inactiveImage := Glyph4;
-    player2.diceCup[5].inactiveImage := Glyph5;
-    player2.diceCup[6].inactiveImage := Glyph6;
-    player2.diceCup[1].activeImage := Glyph7;
-    player2.diceCup[2].activeImage := Glyph8;
-    player2.diceCup[3].activeImage := Glyph9;
-    player2.diceCup[4].activeImage := Glyph10;
-    player2.diceCup[5].activeImage := Glyph11;
-    player2.diceCup[6].activeImage := Glyph12;
+    _Player.diceCup[1].inactiveImage := Glyph1;
+    _Player.diceCup[2].inactiveImage := Glyph2;
+    _Player.diceCup[3].inactiveImage := Glyph3;
+    _Player.diceCup[4].inactiveImage := Glyph4;
+    _Player.diceCup[5].inactiveImage := Glyph5;
+    _Player.diceCup[6].inactiveImage := Glyph6;
+    _Player.diceCup[1].activeImage := Glyph7;
+    _Player.diceCup[2].activeImage := Glyph8;
+    _Player.diceCup[3].activeImage := Glyph9;
+    _Player.diceCup[4].activeImage := Glyph10;
+    _Player.diceCup[5].activeImage := Glyph11;
+    _Player.diceCup[6].activeImage := Glyph12;
   end;
+  if _Player=player1 then
+  Edit1.Text:=_Player.name;
+  if _Player=player2 then
+  Edit2.Text:=_Player.name;
 end;
 
 end.

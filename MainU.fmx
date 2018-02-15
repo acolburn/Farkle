@@ -21,22 +21,22 @@ object frmMain: TfrmMain
     TabOrder = 3
     ColumnCollection = <
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end
       item
-        Value = 16.666666666666670000
+        Value = 16.666666666666660000
       end>
     ControlCollection = <
       item
@@ -318,6 +318,10 @@ object frmMain: TfrmMain
       TextSettings.WordWrap = True
       OnClick = btnSwitchClick
     end
+  end
+  object MediaPlayer1: TMediaPlayer
+    Left = 352
+    Top = 224
   end
   object ImageListMain: TImageList
     Source = <
@@ -969,9 +973,5 @@ object frmMain: TfrmMain
       end>
     Left = 680
     Top = 272
-  end
-  object MediaPlayer1: TMediaPlayer
-    Left = 352
-    Top = 224
   end
 end

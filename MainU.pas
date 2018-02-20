@@ -97,20 +97,22 @@ begin
   // First, find out if player's still alive
   // If player's alive, then all dice in diceCup will have been selected
   // so their .isActive property will be false.
-  if ((aPlayer.diceCup[1].isActive = false) and
-    (aPlayer.diceCup[2].isActive = false) and
-    (aPlayer.diceCup[3].isActive = false) and
-    (aPlayer.diceCup[4].isActive = false) and
-    (aPlayer.diceCup[5].isActive = false) and
-    (aPlayer.diceCup[6].isActive = false)) then
+  with aPlayer do
+  begin
+  if ((diceCup[1].isActive = false) and
+    (diceCup[2].isActive = false) and
+    (diceCup[3].isActive = false) and
+    (diceCup[4].isActive = false) and
+    (diceCup[5].isActive = false) and
+    (diceCup[6].isActive = false)) then
     // make 'em all active again
     for i := 1 to 6 do
     begin
-      aPlayer.diceCup[i].isActive := true;
-      aPlayer.diceCup[i].inactiveImage.imageIndex := -1;
-      aPlayer.diceCup[i].activeImage.imageIndex := aPlayer.diceCup[i]
-        .imageIndex;
+      diceCup[i].isActive := true;
+      diceCup[i].inactiveImage.imageIndex := -1;
+      diceCup[i].activeImage.imageIndex := diceCup[i].imageIndex;
     end;
+  end;
 
   if aPlayer.rollCup = 0 then
   begin

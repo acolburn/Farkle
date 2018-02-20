@@ -40,6 +40,8 @@ type
     procedure btnSwitchClick(Sender: TObject);
     procedure GlyphTap(Sender: TObject);
     procedure displayText(aString: string);
+  private
+    procedure switchPlayer;
   public
     aPlayer: TPlayer;
     player1: TPlayer;
@@ -68,18 +70,7 @@ begin
     displayText( aPlayer.name + ' just earned ' + IntToStr(aPlayer.turnScore) +
       ' pts. Game Total: ' + IntToStr(aPlayer.gameScore) + ' total pts.');
   end;
-  if (aPlayer = player1) then
-  begin
-    aPlayer := player2;
-    GlowEffect2.Enabled:=true;;
-    GlowEffect1.Enabled:=false;
-  end
-  else
-  begin
-    aPlayer := player1;
-    GlowEffect1.Enabled:=true;
-    GlowEffect2.Enabled:=false;
-  end;
+  switchPlayer;
   aPlayer.resetGameBoard;
 end;
 
@@ -255,6 +246,22 @@ begin
     player2.diceCup[4].activeImage := Glyph10;
     player2.diceCup[5].activeImage := Glyph11;
     player2.diceCup[6].activeImage := Glyph12;
+  end;
+end;
+
+procedure TfrmMain.switchPlayer;
+begin
+  if (aPlayer = player1) then
+  begin
+    aPlayer := player2;
+    GlowEffect2.Enabled := true;
+    GlowEffect1.Enabled := false;
+  end
+  else
+  begin
+    aPlayer := player1;
+    GlowEffect1.Enabled := true;
+    GlowEffect2.Enabled := false;
   end;
 end;
 

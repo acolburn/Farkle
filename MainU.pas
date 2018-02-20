@@ -42,7 +42,8 @@ type
     procedure displayText(aString: string);
   private
     procedure switchPlayer;
-    procedure playFarkleSound(i: Integer);
+    procedure playFarkleSound;
+    procedure continueIfAlive;
   public
     aPlayer: TPlayer;
     player1: TPlayer;
@@ -94,28 +95,9 @@ begin
     IntToStr(aPlayer.turnScore) + ' pts. Game: ' + IntToStr(aPlayer.gameScore)
     + ' pts.');
   aPlayer.rollScore := 0;
-  // Special Case: player has selected all six dice, but is still alive
-  // First, find out if player's still alive
-  // If player's alive, then all dice in diceCup will have been selected
-  // so their .isActive property will be false.
-  with aPlayer do
-  begin
-  if ((diceCup[1].isActive = false) and
-    (diceCup[2].isActive = false) and
-    (diceCup[3].isActive = false) and
-    (diceCup[4].isActive = false) and
-    (diceCup[5].isActive = false) and
-    (diceCup[6].isActive = false)) then
-    // make 'em all active again
-    for i := 1 to 6 do
-    begin
-      diceCup[i].isActive := true;
-      diceCup[i].inactiveImage.imageIndex := -1;
-      diceCup[i].activeImage.imageIndex := diceCup[i].imageIndex;
-    end;
-  end;
+  continueIfAlive;
 
-  if aPlayer.rollCup = 0 then playFarkleSound(i);
+  if aPlayer.rollCup = 0 then playFarkleSound;
 
 end;
 
@@ -241,9 +223,36 @@ begin
   end;
 end;
 
-procedure TfrmMain.playFarkleSound(i: Integer);
+procedure TfrmMain.continueIfAlive;
+var
+  i: Integer;
 begin
+  // Special Case: player has selected all six dice, but is still alive
+  // First, find out if player's still alive
+  // If player's alive, then all dice in diceCup will have been selected
+  // so their .isActive property will be false.
+  with aPlayer do
   begin
+    if ((diceCup[1].isActive = false) and
+    (diceCup[2].isActive = false) and
+    (diceCup[3].isActive = false) and
+    (diceCup[4].isActive = false) and
+    (diceCup[5].isActive = false) and
+    (diceCup[6].isActive = false)) then
+      // make 'em all active again
+      for i := 1 to 6 do
+      begin
+        diceCup[i].isActive := true;
+        diceCup[i].inactiveImage.imageIndex := -1;
+        diceCup[i].activeImage.imageIndex := diceCup[i].imageIndex;
+      end;
+  end;
+end;
+
+procedure TfrmMain.playFarkleSound;
+var
+  i:integer;
+begin
     //ShowMessage(aPlayer.name + ' just FARKLED! ');
     i := random(3);
     if i = 0 then
@@ -255,7 +264,6 @@ begin
     MediaPlayer1.Play;
     displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' + IntToStr(aPlayer.gameScore) + ' pts.');
     aPlayer.turnScore := 0;
-  end;
 end;
 
 procedure TfrmMain.switchPlayer;

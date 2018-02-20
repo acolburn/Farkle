@@ -61,11 +61,7 @@ begin
   // Special Case:
   // Have to start with a 500+ pt roll
   if (aPlayer.gameScore = 0) and (aPlayer.turnScore < 500) then
-  begin
-    displayText( aPlayer.name + ' just earned 0 pts. Game Total: ' +
-      IntToStr(aPlayer.gameScore) + ' total pts.');
-    ShowMessage('NOTE: '+aPlayer.name+' still needs a roll with at least 500 pts.');
-  end
+    displayText(aPlayer.name+' still needs a roll with at least 500 pts.')
   else
   begin
     aPlayer.gameScore := aPlayer.gameScore + aPlayer.turnScore;

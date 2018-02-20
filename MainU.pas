@@ -85,8 +85,6 @@ begin
 end;
 
 procedure TfrmMain.btnRollClick(Sender: TObject);
-var
-  i: integer;
 begin
   MediaPlayer1.Tag:=0; //using to indicate whether MediaPlayer's played during turn
                        //only want it to play once, at which point tag:=1;

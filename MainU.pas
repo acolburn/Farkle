@@ -80,8 +80,6 @@ begin
     GlowEffect1.Enabled:=true;
     GlowEffect2.Enabled:=false;
   end;
-  aPlayer.turnScore := 0;
-  aPlayer.rollScore := 0;
   aPlayer.resetGameBoard;
 end;
 

@@ -103,6 +103,8 @@ procedure TPlayer.resetGameBoard;
 var
   i: integer;
 begin
+  fTurnScore := 0;
+  fRollScore := 0;
   for i := 1 to 6 do
   begin
     diceCup[i].isActive := true;

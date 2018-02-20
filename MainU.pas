@@ -42,6 +42,7 @@ type
     procedure displayText(aString: string);
   private
     procedure switchPlayer;
+    procedure playFarkleSound(i: Integer);
   public
     aPlayer: TPlayer;
     player1: TPlayer;
@@ -114,18 +115,7 @@ begin
     end;
   end;
 
-  if aPlayer.rollCup = 0 then
-  begin
-    //ShowMessage(aPlayer.name + ' just FARKLED! ');
-    i:=random(3);
-    if i=0 then MediaPlayer1.FileName:=TPath.Combine(TPath.GetDocumentsPath, 'farkle1.mp3')
-    else if i=1 then MediaPlayer1.FileName:=TPath.Combine(TPath.GetDocumentsPath, 'farkle2.mp3')
-    else if i=2 then MediaPlayer1.FileName:=TPath.Combine(TPath.GetDocumentsPath, 'farkle3.mp3');
-    MediaPlayer1.Play;
-    displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' +
-      IntToStr(aPlayer.gameScore) + ' pts.');
-    aPlayer.turnScore := 0;
-  end;
+  if aPlayer.rollCup = 0 then playFarkleSound(i);
 
 end;
 
@@ -248,6 +238,23 @@ begin
     player2.diceCup[4].activeImage := Glyph10;
     player2.diceCup[5].activeImage := Glyph11;
     player2.diceCup[6].activeImage := Glyph12;
+  end;
+end;
+
+procedure TfrmMain.playFarkleSound(i: Integer);
+begin
+  begin
+    //ShowMessage(aPlayer.name + ' just FARKLED! ');
+    i := random(3);
+    if i = 0 then
+      MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath, 'farkle1.mp3')
+    else if i = 1 then
+      MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath, 'farkle2.mp3')
+    else if i = 2 then
+      MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath, 'farkle3.mp3');
+    MediaPlayer1.Play;
+    displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' + IntToStr(aPlayer.gameScore) + ' pts.');
+    aPlayer.turnScore := 0;
   end;
 end;
 

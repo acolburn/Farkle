@@ -57,6 +57,7 @@ var
 implementation
 
 {$R *.fmx}
+
 uses System.IOUtils;
 
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
@@ -65,11 +66,11 @@ begin
   // Special Case:
   // Have to start with a 500+ pt roll
   if (aPlayer.gameScore = 0) and (aPlayer.turnScore < 500) then
-    displayText(aPlayer.name+' still needs a roll with at least 500 pts.')
+    displayText(aPlayer.name + ' still needs a roll with at least 500 pts.')
   else
   begin
     aPlayer.gameScore := aPlayer.gameScore + aPlayer.turnScore;
-    displayText( aPlayer.name + ' just earned ' + IntToStr(aPlayer.turnScore) +
+    displayText(aPlayer.name + ' just earned ' + IntToStr(aPlayer.turnScore) +
       ' pts. Game Total: ' + IntToStr(aPlayer.gameScore) + ' total pts.');
   end;
   switchPlayer;
@@ -86,16 +87,18 @@ end;
 
 procedure TfrmMain.btnRollClick(Sender: TObject);
 begin
-  MediaPlayer1.Tag:=0; //using to indicate whether MediaPlayer's played during turn
-                       //only want it to play once, at which point tag:=1;
+  MediaPlayer1.Tag := 0;
+  // using to indicate whether MediaPlayer's played during turn
+  // only want it to play once, at which point tag:=1;
   aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
-  displayText( aPlayer.name + '''s turn. This turn: ' +
+  displayText(aPlayer.name + '''s turn. This turn: ' +
     IntToStr(aPlayer.turnScore) + ' pts. Game: ' + IntToStr(aPlayer.gameScore)
     + ' pts.');
   aPlayer.rollScore := 0;
   continueIfAlive;
 
-  if aPlayer.rollCup = 0 then playFarkleSound;
+  if aPlayer.rollCup = 0 then
+    playFarkleSound;
 
 end;
 
@@ -112,7 +115,7 @@ begin
   initializePlayer(player1);
   initializePlayer(player2);
   aPlayer := player1;
-  GlowEffect1.Enabled:=true;
+  GlowEffect1.Enabled := true;
   aPlayer.resetGameBoard;
   Edit1.Text := player1.name;
   Edit2.Text := player2.name;
@@ -171,12 +174,14 @@ begin
   // display roll score for this turn
   temp := aPlayer.turnScore + aPlayer.rollScore;
   displayText(IntToStr(temp) + ' pts. this turn');
-  //get excited
-  if (aPlayer.rollScore>600) and (MediaPlayer1.Tag=0) then  //tag=0 when MediaPlayer hasn't played yet this turn
+  // get excited
+  if (aPlayer.rollScore > 600) and (MediaPlayer1.Tag = 0) then
+  // tag=0 when MediaPlayer hasn't played yet this turn
   begin
-    MediaPlayer1.FileName:=TPath.Combine(TPath.GetDocumentsPath, 'excited1.mp3');
+    MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath,
+      'excited1.mp3');
     MediaPlayer1.Play;
-    MediaPlayer1.Tag:=1;
+    MediaPlayer1.Tag := 1;
   end;
 end;
 
@@ -223,7 +228,7 @@ end;
 
 procedure TfrmMain.continueIfAlive;
 var
-  i: Integer;
+  i: integer;
 begin
   // Special Case: player has selected all six dice, but is still alive
   // First, find out if player's still alive
@@ -231,12 +236,9 @@ begin
   // so their .isActive property will be false.
   with aPlayer do
   begin
-    if ((diceCup[1].isActive = false) and
-    (diceCup[2].isActive = false) and
-    (diceCup[3].isActive = false) and
-    (diceCup[4].isActive = false) and
-    (diceCup[5].isActive = false) and
-    (diceCup[6].isActive = false)) then
+    if ((diceCup[1].isActive = false) and (diceCup[2].isActive = false) and
+      (diceCup[3].isActive = false) and (diceCup[4].isActive = false) and
+      (diceCup[5].isActive = false) and (diceCup[6].isActive = false)) then
       // make 'em all active again
       for i := 1 to 6 do
       begin
@@ -249,19 +251,22 @@ end;
 
 procedure TfrmMain.playFarkleSound;
 var
-  i:integer;
+  i: integer;
 begin
-    //ShowMessage(aPlayer.name + ' just FARKLED! ');
-    i := random(3);
-    if i = 0 then
-      MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath, 'farkle1.mp3')
-    else if i = 1 then
-      MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath, 'farkle2.mp3')
-    else if i = 2 then
-      MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath, 'farkle3.mp3');
-    MediaPlayer1.Play;
-    displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' + IntToStr(aPlayer.gameScore) + ' pts.');
-    aPlayer.turnScore := 0;
+  i := random(3);
+  if i = 0 then
+    MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath,
+      'farkle1.mp3')
+  else if i = 1 then
+    MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath,
+      'farkle2.mp3')
+  else if i = 2 then
+    MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath,
+      'farkle3.mp3');
+  MediaPlayer1.Play;
+  displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' +
+    IntToStr(aPlayer.gameScore) + ' pts.');
+  aPlayer.turnScore := 0;
 end;
 
 procedure TfrmMain.switchPlayer;

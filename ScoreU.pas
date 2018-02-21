@@ -77,8 +77,6 @@ begin
     begin
       temp := selectedDice[0];
       scoreTriplet(temp);
-      // for i := 0 to 2 do
-      // selectedDice.Remove(temp);
     end
     else
       // no triplets, check for 1's and 5's
@@ -188,7 +186,7 @@ begin
         scoreOneDice(selectedDice[i]);
       end;
 
-  end; // end if selectedDice.Count=5
+  end;
 end;
 
 procedure TScoreCalculator.scoreFourDice;
@@ -236,12 +234,11 @@ begin
         scoreOneDice(selectedDice[i]);
       end;
 
-  end; // end if selectedDice.Count = 4
+  end;
 end;
 
 procedure TScoreCalculator.scoreOneDice(aDice: integer);
 begin
-
   // a 1 or a 5 is only way to score
   begin
     if aDice = 1 then
@@ -268,7 +265,6 @@ begin
       (selectedDice[5] = temp) then
     begin
       fRollScore := fRollScore + 3000;
-//      result := IntToStr(fRollScore);
       exit; // 6 of a kind matches other score catgories too...so let's not go there
     end;
 
@@ -278,7 +274,6 @@ begin
       ) and (selectedDice[3] = selectedDice[5]) then
     begin
       fRollScore := fRollScore + 2500;
-//      result := IntToStr(fRollScore);
       exit; // you're not going to get more ... let's go
     end;
 
@@ -292,7 +287,6 @@ begin
     begin
       fRollScore := fRollScore + 2000;
       scoreOneDice(selectedDice[5]);
-//      result := IntToStr(fRollScore);
       exit;
     end
     // Or do the last 5 dice match?
@@ -302,7 +296,6 @@ begin
     begin
       fRollScore := fRollScore + 2000;
       scoreOneDice(selectedDice[0]);
-//      result := IntToStr(fRollScore);
       exit;
     end;
 
@@ -312,7 +305,6 @@ begin
       (selectedDice[5] = 6) then
     begin
       fRollScore := fRollScore + 1500;
-//      result := IntToStr(fRollScore);
       exit; // scored with all the dice...might as well move on
     end;
 
@@ -322,7 +314,6 @@ begin
     then
     begin
       fRollScore := fRollScore + 1500;
-//      result := IntToStr(fRollScore);
       exit;
     end;
 
@@ -335,7 +326,6 @@ begin
       fRollScore := fRollScore + 1000;
       scoreOneDice(selectedDice[4]);
       scoreOneDice(selectedDice[5]);
-//      result := IntToStr(fRollScore);
       exit;
     end
     // Or do positions 1-4 match?
@@ -346,7 +336,6 @@ begin
       fRollScore := fRollScore + 1000;
       scoreOneDice(selectedDice[0]);
       scoreOneDice(selectedDice[5]);
-//      result := IntToStr(fRollScore);
       exit;
     end
     // Or do positions 2-5 match?
@@ -357,7 +346,6 @@ begin
       fRollScore := fRollScore + 1000;
       scoreOneDice(selectedDice[0]);
       scoreOneDice(selectedDice[1]);
-//      result := IntToStr(fRollScore);
       exit;
     end;
 
@@ -367,7 +355,6 @@ begin
       ) and (selectedDice[2] = selectedDice[5]) then
     begin
       fRollScore := fRollScore + 1500;
-//      result := IntToStr(fRollScore);
       exit;
     end
     else if (selectedDice[0] = selectedDice[1]) and
@@ -375,7 +362,6 @@ begin
       ) and (selectedDice[4] = selectedDice[5]) then
     begin
       fRollScore := fRollScore + 1500;
-//      result := IntToStr(fRollScore);
       exit;
     end;
 
@@ -401,7 +387,6 @@ begin
       scoreOneDice(selectedDice[0]);
       scoreOneDice(selectedDice[4]);
       scoreOneDice(selectedDice[5]);
-//      result := IntToStr(fRollScore);
       exit;
     end
     // Or do positions 2-4 match?
@@ -412,7 +397,6 @@ begin
       scoreOneDice(selectedDice[0]);
       scoreOneDice(selectedDice[1]);
       scoreOneDice(selectedDice[5]);
-//      result := IntToStr(fRollScore);
       exit;
     end
     // Or do positions 3-5 match? ... Make sure 0-2 don't also match!
@@ -438,7 +422,7 @@ begin
         scoreOneDice(selectedDice[i]);
       end;
 
-  end; // end selectedDice.Count=6
+  end;
 end;
 
 end.

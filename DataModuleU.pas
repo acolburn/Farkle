@@ -1,13 +1,9 @@
 unit DataModuleU;
-// TODO Farkle?
-
 
 interface
 
 uses
-  System.SysUtils, System.Classes, {System.ImageList,}
-  FMX.ImgList, {Vcl.ImgList,}
-  {Vcl.Controls} Generics.Collections, ScoreU;
+  System.SysUtils, System.Classes, FMX.ImgList, Generics.Collections, ScoreU;
 
 type
   TDataModule1 = class(TDataModule)
@@ -80,8 +76,8 @@ begin
   inherited Create;
   fName := aName;
   fScoreCalculator := TScoreCalculator.Create;
-  fGameScore:=0;
-  fTurnScore:=0;
+  fGameScore := 0;
+  fTurnScore := 0;
 end;
 
 destructor TPlayer.Destroy;
@@ -124,13 +120,17 @@ begin
       diceCup[i].activeImage.imageIndex := diceCup[i].imageIndex;
     end;
   fScoreCalculator.selectedDice.Clear;
-  //Check for a Farkle by running the active dice through the score calculator
-  //it the score is 0, player rolled a Farkle!:
-  for I := 1 to 6 do
-    if diceCup[i].isActive then fScoreCalculator.selectedDice.Add(diceCup[i].value);
-  farkleCheck:=fScoreCalculator.scoreTurn;
+  // Check for a Farkle by running the active dice through the score calculator
+  // it the score is 0, player rolled a Farkle!:
+  for i := 1 to 6 do
+    if diceCup[i].isActive then
+      fScoreCalculator.selectedDice.Add(diceCup[i].value);
+  farkleCheck := fScoreCalculator.scoreTurn;
   fScoreCalculator.selectedDice.Clear;
-  if farkleCheck=0 then result:=0 else result:=-1; //reserving other possible outcomes...
+  if farkleCheck = 0 then
+    result := 0
+  else
+    result := -1; // reserving other possible outcomes...
 end;
 
 procedure TPlayer.scoreTurn;

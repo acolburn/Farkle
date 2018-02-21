@@ -167,9 +167,8 @@ begin
   // display roll score for this turn
   temp := aPlayer.turnScore + aPlayer.rollScore;
   displayText(IntToStr(temp) + ' pts. this turn');
-  // get excited
-  if (aPlayer.rollScore > 600) and (MediaPlayer1.Tag = 0) then
-  // tag=0 when MediaPlayer hasn't played yet this turn
+  // get excited, but only once/turn
+  if (aPlayer.rollScore > 600) and (fSoundPlayed=false) then
   begin
     MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath,
       'excited1.mp3');

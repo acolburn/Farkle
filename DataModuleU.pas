@@ -46,6 +46,7 @@ type
     procedure scoreTurn;
     procedure addDice(aDiceValue: integer);
     procedure removeDice(aDiceValue: integer);
+    function endTurn: string;
   end;
 
 var
@@ -88,6 +89,21 @@ begin
     diceCup[i].Free;
   fScoreCalculator.Free;
   inherited;
+end;
+
+function TPlayer.endTurn: string;
+begin
+   fTurnScore := fTurnScore + fRollScore;
+  // Special Case:
+  // Have to start with a 500+ pt roll
+  if (fGameScore = 0) and (fTurnScore < 500) then
+    result := fName + ' still needs a roll with at least 500 pts.'
+  else
+  begin
+    fGameScore := fGameScore + fTurnScore;
+    result := fName + ' just earned ' + IntToStr(fTurnScore) +
+      ' pts. Game Total: ' + IntToStr(fGameScore) + ' total pts.';
+  end;
 end;
 
 procedure TPlayer.removeDice(aDiceValue: integer);

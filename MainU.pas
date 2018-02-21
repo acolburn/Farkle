@@ -61,18 +61,11 @@ implementation
 uses System.IOUtils;
 
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
+var
+  msg: string;
 begin
-  aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
-  // Special Case:
-  // Have to start with a 500+ pt roll
-  if (aPlayer.gameScore = 0) and (aPlayer.turnScore < 500) then
-    displayText(aPlayer.name + ' still needs a roll with at least 500 pts.')
-  else
-  begin
-    aPlayer.gameScore := aPlayer.gameScore + aPlayer.turnScore;
-    displayText(aPlayer.name + ' just earned ' + IntToStr(aPlayer.turnScore) +
-      ' pts. Game Total: ' + IntToStr(aPlayer.gameScore) + ' total pts.');
-  end;
+  msg:=aPlayer.endTurn;
+  displayText(msg);
   switchPlayer;
   aPlayer.resetGameBoard;
 end;

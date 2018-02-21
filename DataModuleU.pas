@@ -48,6 +48,7 @@ type
     procedure removeDice(aDiceValue: integer);
     function endTurn: string;
     function startTurn: string;
+    function farkleCheck: boolean;
   end;
 
 var
@@ -105,6 +106,18 @@ begin
     result := fName + ' just earned ' + IntToStr(fTurnScore) +
       ' pts. Game Total: ' + IntToStr(fGameScore) + ' total pts.';
   end;
+end;
+
+function TPlayer.farkleCheck: boolean;
+begin
+  result:=false;
+  //under conditions when this method called, rollCup=0 only when player farkled
+  if rollCup=0 then
+  begin
+    fTurnScore:=0;
+    result:=true;
+  end;
+
 end;
 
 procedure TPlayer.removeDice(aDiceValue: integer);

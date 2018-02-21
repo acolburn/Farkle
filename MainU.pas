@@ -87,14 +87,12 @@ begin
   msg := aPlayer.startTurn;
   displayText(msg);
   continueIfAlive;
-  if aPlayer.rollCup = 0 then
+  if aPlayer.farkleCheck=true then
   begin
     playFarkleSound;
     displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' +
-      IntToStr(aPlayer.gameScore) + ' pts.');
-    aPlayer.turnScore := 0;
+      aPlayer.gameScore.ToString + ' pts.');
   end;
-
 end;
 
 procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);

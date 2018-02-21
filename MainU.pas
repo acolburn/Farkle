@@ -64,7 +64,7 @@ procedure TfrmMain.btnSwitchClick(Sender: TObject);
 var
   msg: string;
 begin
-  msg:=aPlayer.endTurn;
+  msg := aPlayer.endTurn;
   displayText(msg);
   switchPlayer;
   aPlayer.resetGameBoard;
@@ -79,17 +79,15 @@ begin
 end;
 
 procedure TfrmMain.btnRollClick(Sender: TObject);
+var
+  msg: string;
 begin
   MediaPlayer1.Tag := 0;
   // using to indicate whether MediaPlayer's played during turn
   // only want it to play once, at which point tag:=1;
-  aPlayer.turnScore := aPlayer.turnScore + aPlayer.rollScore;
-  displayText(aPlayer.name + '''s turn. This turn: ' +
-    IntToStr(aPlayer.turnScore) + ' pts. Game: ' + IntToStr(aPlayer.gameScore)
-    + ' pts.');
-  aPlayer.rollScore := 0;
+  msg := aPlayer.startTurn;
+  displayText(msg);
   continueIfAlive;
-
   if aPlayer.rollCup = 0 then
     playFarkleSound;
 

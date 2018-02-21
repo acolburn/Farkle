@@ -47,6 +47,7 @@ type
     procedure addDice(aDiceValue: integer);
     procedure removeDice(aDiceValue: integer);
     function endTurn: string;
+    function startTurn: string;
   end;
 
 var
@@ -152,6 +153,15 @@ end;
 procedure TPlayer.scoreTurn;
 begin
   fRollScore := fScoreCalculator.scoreTurn;
+end;
+
+function TPlayer.startTurn: string;
+begin
+fTurnScore := fTurnScore + fRollScore;
+  result := fName + '''s turn. This turn: ' +
+    fTurnScore.ToString + ' pts. Game: ' + fGameScore.ToString
+    + ' pts.';
+  fRollScore := 0;
 end;
 
 end.

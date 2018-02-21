@@ -41,6 +41,7 @@ type
     procedure GlyphTap(Sender: TObject);
     procedure displayText(aString: string);
   private
+    fSoundPlayed: Boolean;
     procedure switchPlayer;
     procedure playFarkleSound;
     procedure continueIfAlive;
@@ -82,14 +83,17 @@ procedure TfrmMain.btnRollClick(Sender: TObject);
 var
   msg: string;
 begin
-  MediaPlayer1.Tag := 0;
-  // using to indicate whether MediaPlayer's played during turn
-  // only want it to play once, at which point tag:=1;
+  fSoundPlayed := false; // only want sound once/turn, at which point -> true;
   msg := aPlayer.startTurn;
   displayText(msg);
   continueIfAlive;
   if aPlayer.rollCup = 0 then
+  begin
     playFarkleSound;
+    displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' +
+      IntToStr(aPlayer.gameScore) + ' pts.');
+    aPlayer.turnScore := 0;
+  end;
 
 end;
 
@@ -172,7 +176,7 @@ begin
     MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath,
       'excited1.mp3');
     MediaPlayer1.Play;
-    MediaPlayer1.Tag := 1;
+    fSoundPlayed := true;
   end;
 end;
 
@@ -255,9 +259,6 @@ begin
     MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath,
       'farkle3.mp3');
   MediaPlayer1.Play;
-  displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' +
-    IntToStr(aPlayer.gameScore) + ' pts.');
-  aPlayer.turnScore := 0;
 end;
 
 procedure TfrmMain.switchPlayer;

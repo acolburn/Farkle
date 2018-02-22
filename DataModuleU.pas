@@ -31,6 +31,7 @@ type
     fTurnScore: integer;
     fGameScore: integer;
     fRollScore: integer;
+    fTurnEndedMessage: string;
   public
     diceCup: array [1 .. 6] of TDice;
     property name: string read fName write fName;
@@ -39,6 +40,7 @@ type
     property turnScore: integer read fTurnScore write fTurnScore;
     property gameScore: integer read fGameScore write fGameScore;
     property rollScore: integer read fRollScore write fRollScore;
+    property turnEndedMessage: string read fTurnEndedMessage write fTurnEndedMessage;
     constructor Create(aName: string); overload;
     destructor Destroy; override;
     function rollCup: integer;
@@ -46,7 +48,7 @@ type
     procedure scoreTurn;
     procedure addDice(aDiceValue: integer);
     procedure removeDice(aDiceValue: integer);
-    function endTurn: string;
+    procedure turnEnded;
     function startTurn: string;
     function farkleCheck: boolean;
   end;
@@ -93,17 +95,17 @@ begin
   inherited;
 end;
 
-function TPlayer.endTurn: string;
+procedure TPlayer.turnEnded;
 begin
    fTurnScore := fTurnScore + fRollScore;
   // Special Case:
   // Have to start with a 500+ pt roll
   if (fGameScore = 0) and (fTurnScore < 500) then
-    result := fName + ' still needs a roll with at least 500 pts.'
+    fTurnEndedMessage := fName + ' still needs a roll with at least 500 pts.'
   else
   begin
     fGameScore := fGameScore + fTurnScore;
-    result := fName + ' just earned ' + IntToStr(fTurnScore) +
+    fTurnEndedMessage := fName + ' just earned ' + IntToStr(fTurnScore) +
       ' pts. Game Total: ' + IntToStr(fGameScore) + ' total pts.';
   end;
 end;

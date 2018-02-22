@@ -62,11 +62,9 @@ implementation
 uses System.IOUtils;
 
 procedure TfrmMain.btnSwitchClick(Sender: TObject);
-var
-  msg: string;
 begin
-  msg := aPlayer.endTurn;
-  displayText(msg);
+  aPlayer.turnEnded;
+  displayText(aPlayer.turnEndedMessage);
   switchPlayer;
   aPlayer.resetGameBoard;
 end;

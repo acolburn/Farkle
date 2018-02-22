@@ -32,6 +32,7 @@ type
     fGameScore: integer;
     fRollScore: integer;
     fTurnEndedMessage: string;
+    fTurnStartedMessage: string;
   public
     diceCup: array [1 .. 6] of TDice;
     property name: string read fName write fName;
@@ -41,6 +42,7 @@ type
     property gameScore: integer read fGameScore write fGameScore;
     property rollScore: integer read fRollScore write fRollScore;
     property turnEndedMessage: string read fTurnEndedMessage write fTurnEndedMessage;
+    property turnStartedMessage: string read fTurnStartedMessage write fTurnStartedMessage;
     constructor Create(aName: string); overload;
     destructor Destroy; override;
     function rollCup: integer;
@@ -49,7 +51,7 @@ type
     procedure addDice(aDiceValue: integer);
     procedure removeDice(aDiceValue: integer);
     procedure turnEnded;
-    function startTurn: string;
+    procedure startTurn;
     function farkleCheck: boolean;
   end;
 
@@ -170,10 +172,10 @@ begin
   fRollScore := fScoreCalculator.scoreTurn;
 end;
 
-function TPlayer.startTurn: string;
+procedure TPlayer.startTurn;
 begin
 fTurnScore := fTurnScore + fRollScore;
-  result := fName + '''s turn. This turn: ' +
+  fTurnStartedMessage := fName + '''s turn. This turn: ' +
     fTurnScore.ToString + ' pts. Game: ' + fGameScore.ToString
     + ' pts.';
   fRollScore := 0;

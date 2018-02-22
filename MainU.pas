@@ -78,12 +78,10 @@ begin
 end;
 
 procedure TfrmMain.btnRollClick(Sender: TObject);
-var
-  msg: string;
 begin
   fSoundPlayed := false; // only want sound once/turn, at which point -> true;
-  msg := aPlayer.startTurn;
-  displayText(msg);
+  aPlayer.startTurn;
+  displayText(aPlayer.turnStartedMessage);
   continueIfAlive;
   if aPlayer.farkleCheck=true then
   begin

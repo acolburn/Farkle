@@ -83,7 +83,7 @@ begin
   aPlayer.startTurn;
   displayText(aPlayer.turnStartedMessage);
   continueIfAlive;
-  if aPlayer.farkleCheck=true then
+  if aPlayer.farkleCheck = true then
   begin
     playFarkleSound;
     displayText(aPlayer.name + '''s turn. This turn (Farkle): 0 pts. Game: ' +
@@ -164,7 +164,7 @@ begin
   temp := aPlayer.turnScore + aPlayer.rollScore;
   displayText(IntToStr(temp) + ' pts. this turn');
   // get excited, but only once/turn
-  if (aPlayer.rollScore > 600) and (fSoundPlayed=false) then
+  if (aPlayer.rollScore > 600) and (fSoundPlayed = false) then
   begin
     MediaPlayer1.FileName := TPath.Combine(TPath.GetDocumentsPath,
       'excited1.mp3');

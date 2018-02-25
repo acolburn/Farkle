@@ -1072,7 +1072,7 @@
                 </DeployFile>
                 <DeployFile LocalName="Assets\farkle2.mp3" Configuration="Debug" Class="File">
                     <Platform Name="iOSDevice64">
-                        <RemoteDir>Startup\Documents\</RemoteDir>
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
                         <RemoteName>farkle2.mp3</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>

@@ -150,7 +150,7 @@
             <Overwrite>True</Overwrite>
         </DeployFile>
         <DeployFile Include="Assets\farkle3.mp3" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>Farkle.app\StartUp\Documents\</RemoteDir>
+            <RemoteDir>Farkle.app\Startup/Documents/\</RemoteDir>
             <RemoteName>farkle3.mp3</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
@@ -377,7 +377,7 @@
             <Overwrite>True</Overwrite>
         </DeployFile>
         <DeployFile Include="Assets\excited1.mp3" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>Farkle.app\StartUp\Documents\</RemoteDir>
+            <RemoteDir>Farkle.app\Startup/Documents/\</RemoteDir>
             <RemoteName>excited1.mp3</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
@@ -593,7 +593,7 @@
             <Overwrite>True</Overwrite>
         </DeployFile>
         <DeployFile Include="Assets\farkle1.mp3" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>Farkle.app\StartUp\Documents\</RemoteDir>
+            <RemoteDir>Farkle.app\Startup/Documents/\</RemoteDir>
             <RemoteName>farkle1.mp3</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
@@ -746,7 +746,7 @@
             <Overwrite>True</Overwrite>
         </DeployFile>
         <DeployFile Include="Assets\farkle2.mp3" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>Farkle.app\Startup\Documents\</RemoteDir>
+            <RemoteDir>Farkle.app\Startup/Documents/\</RemoteDir>
             <RemoteName>farkle2.mp3</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>

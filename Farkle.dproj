@@ -342,6 +342,11 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_180x180.png" Configuration="Release" Class="iPhone_AppIcon180">
+                    <Platform Name="iOSDevice64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_57x57.png" Configuration="Debug" Class="iPhone_AppIcon57">
                     <Platform Name="iOSDevice64">
                         <Overwrite>true</Overwrite>
@@ -358,11 +363,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_180x180.png" Configuration="Release" Class="iPhone_AppIcon180">
-                    <Platform Name="iOSDevice64">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="Win32\Debug\Farkle.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Farkle.exe</RemoteName>
@@ -375,14 +375,14 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_750x1334.png" Configuration="Debug" Class="iPhone_Launch750">
-                    <Platform Name="iOSDevice64">
-                        <RemoteName>Default-667h@2x.png</RemoteName>
+                <DeployFile LocalName="$(NDKBasePath)\prebuilt\android-arm\gdbserver\gdbserver" Configuration="Release" Class="AndroidGDBServer">
+                    <Platform Name="Android">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(NDKBasePath)\prebuilt\android-arm\gdbserver\gdbserver" Configuration="Release" Class="AndroidGDBServer">
-                    <Platform Name="Android">
+                <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_750x1334.png" Configuration="Debug" Class="iPhone_Launch750">
+                    <Platform Name="iOSDevice64">
+                        <RemoteName>Default-667h@2x.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -435,6 +435,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="Assets\farkle1.caf" Configuration="Debug" Class="File">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <RemoteName>farkle1.caf</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\Redist\osx32\libcgsqlite3.dylib" Class="DependencyModule">
                     <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
@@ -455,13 +462,6 @@
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_SplashImage_470x320.png" Configuration="Release" Class="Android_SplashImage470">
                     <Platform Name="Android">
                         <RemoteName>splash_image.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="Assets\farkle3.mp3" Configuration="Debug" Class="File">
-                    <Platform Name="iOSDevice64">
-                        <RemoteDir>StartUp\Documents\</RemoteDir>
-                        <RemoteName>farkle3.mp3</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -606,6 +606,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="Assets\excited1.caf" Configuration="Debug" Class="File">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <RemoteName>excited1.caf</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_40x40.png" Configuration="Debug" Class="iPhone_Spotlight40">
                     <Platform Name="iOSDevice64">
                         <Overwrite>true</Overwrite>
@@ -697,13 +704,6 @@
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_SplashImage_640x480.png" Configuration="Release" Class="Android_SplashImage640">
                     <Platform Name="Android">
                         <RemoteName>splash_image.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="Assets\excited1.mp3" Configuration="Debug" Class="File">
-                    <Platform Name="iOSDevice64">
-                        <RemoteDir>StartUp\Documents\</RemoteDir>
-                        <RemoteName>excited1.mp3</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -844,6 +844,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="Assets\farkle2.caf" Configuration="Debug" Class="File">
+                    <Platform Name="iOSDevice64">
+                        <RemoteDir>StartUp\Documents\</RemoteDir>
+                        <RemoteName>farkle2.caf</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_72x72.png" Configuration="Debug" Class="iPad_AppIcon72">
                     <Platform Name="iOSDevice64">
                         <Overwrite>true</Overwrite>
@@ -924,10 +931,10 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Assets\farkle1.mp3" Configuration="Debug" Class="File">
+                <DeployFile LocalName="Assets\farkle3.caf" Configuration="Debug" Class="File">
                     <Platform Name="iOSDevice64">
                         <RemoteDir>StartUp\Documents\</RemoteDir>
-                        <RemoteName>farkle1.mp3</RemoteName>
+                        <RemoteName>farkle3.caf</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -1070,13 +1077,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Assets\farkle2.mp3" Configuration="Debug" Class="File">
-                    <Platform Name="iOSDevice64">
-                        <RemoteDir>StartUp\Documents\</RemoteDir>
-                        <RemoteName>farkle2.mp3</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_1024x768.png" Configuration="Debug" Class="iPad_Launch1024x768">
                     <Platform Name="iOSDevice64">
                         <RemoteName>Default-Landscape~ipad.png</RemoteName>
@@ -1096,12 +1096,27 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectOSXResource">
@@ -1480,27 +1495,12 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="DependencyModule">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
-                    </Platform>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSSimulator">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>

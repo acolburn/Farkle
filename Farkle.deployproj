@@ -4,33 +4,12 @@
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
     <PropertyGroup>
-        <DeviceId Condition="'$(Platform)'=='Android'"/>
+        <DeviceId Condition="'$(Platform)'=='Android'">G0K0H40455230RW4</DeviceId>
         <DeviceId Condition="'$(Platform)'=='iOSDevice32'"/>
         <DeviceId Condition="'$(Platform)'=='iOSDevice64'">b287d9efb521091944d838bd1df0a5149e79fbed</DeviceId>
         <DeviceId Condition="'$(Platform)'=='iOSSimulator'"/>
     </PropertyGroup>
-    <ItemGroup Condition="'$(Platform)'=='Win32'">
-        <DeployFile Include="Win32\Debug\Farkle.exe" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>Farkle\</RemoteDir>
-            <RemoteName>Farkle.exe</RemoteName>
-            <DeployClass>ProjectOutput</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-            <Required>True</Required>
-        </DeployFile>
-        <DeployFile Include="Win32\Release\Farkle.exe" Condition="'$(Config)'=='Release'">
-            <RemoteDir>Farkle\</RemoteDir>
-            <RemoteName>Farkle.exe</RemoteName>
-            <DeployClass>ProjectOutput</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-            <Required>True</Required>
-        </DeployFile>
-    </ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='Win64'"/>
     <ItemGroup Condition="'$(Platform)'=='iOSDevice64'">
         <DeployFile Include="iOSDevice64\Debug\Farkle.entitlements" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle.app\..\</RemoteDir>
@@ -77,19 +56,19 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_57x57.png" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_144x144.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle.app\</RemoteDir>
-            <RemoteName>FM_ApplicationIcon_57x57.png</RemoteName>
-            <DeployClass>iPhone_AppIcon57</DeployClass>
+            <RemoteName>FM_ApplicationIcon_144x144.png</RemoteName>
+            <DeployClass>iPad_AppIcon144</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_144x144.png" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="$(BDS)\bin\Artwork\iOS\iPhone\FM_ApplicationIcon_57x57.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle.app\</RemoteDir>
-            <RemoteName>FM_ApplicationIcon_144x144.png</RemoteName>
-            <DeployClass>iPad_AppIcon144</DeployClass>
+            <RemoteName>FM_ApplicationIcon_57x57.png</RemoteName>
+            <DeployClass>iPhone_AppIcon57</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -140,20 +119,20 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Assets\farkle1.caf" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>Farkle.app\StartUp\Documents\</RemoteDir>
-            <RemoteName>farkle1.caf</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_320x480.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle.app\</RemoteDir>
             <RemoteName>Default.png</RemoteName>
             <DeployClass>iPhone_Launch320</DeployClass>
             <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\farkle3.mp3" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>Farkle.app\StartUp\Documents\</RemoteDir>
+            <RemoteName>farkle3.mp3</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -275,15 +254,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Assets\excited1.caf" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>Farkle.app\StartUp\Documents\</RemoteDir>
-            <RemoteName>excited1.caf</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="$(BDS)\bin\Artwork\iOS\iPhone\FM_SpotlightSearchIcon_40x40.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle.app\</RemoteDir>
             <RemoteName>FM_SpotlightSearchIcon_40x40.png</RemoteName>
@@ -380,6 +350,15 @@
             <RemoteDir>Farkle.app\</RemoteDir>
             <RemoteName>Default-Portrait~ipad.png</RemoteName>
             <DeployClass>iPad_Launch768x1024</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\excited1.mp3" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>Farkle.app\StartUp\Documents\</RemoteDir>
+            <RemoteName>excited1.mp3</RemoteName>
+            <DeployClass>File</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -511,15 +490,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Assets\farkle2.caf" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>Farkle.app\StartUp\Documents\</RemoteDir>
-            <RemoteName>farkle2.caf</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="$(BDS)\bin\Artwork\iOS\iPad\FM_ApplicationIcon_72x72.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle.app\</RemoteDir>
             <RemoteName>FM_ApplicationIcon_72x72.png</RemoteName>
@@ -601,9 +571,9 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Assets\farkle3.caf" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="Assets\farkle1.mp3" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle.app\StartUp\Documents\</RemoteDir>
-            <RemoteName>farkle3.caf</RemoteName>
+            <RemoteName>farkle1.mp3</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
@@ -754,6 +724,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="Assets\farkle2.mp3" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>Farkle.app\StartUp\Documents\</RemoteDir>
+            <RemoteName>farkle2.mp3</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImageLandscape_1024x768.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle.app\</RemoteDir>
             <RemoteName>Default-Landscape~ipad.png</RemoteName>
@@ -771,6 +750,29 @@
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
+        </DeployFile>
+    </ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='iOSDevice32'"/>
+    <ItemGroup Condition="'$(Platform)'=='Win32'">
+        <DeployFile Include="Win32\Debug\Farkle.exe" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>Farkle\</RemoteDir>
+            <RemoteName>Farkle.exe</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+            <Required>True</Required>
+        </DeployFile>
+        <DeployFile Include="Win32\Release\Farkle.exe" Condition="'$(Config)'=='Release'">
+            <RemoteDir>Farkle\</RemoteDir>
+            <RemoteName>Farkle.exe</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+            <Required>True</Required>
         </DeployFile>
     </ItemGroup>
     <ItemGroup Condition="'$(Platform)'=='OSX32'">
@@ -867,7 +869,6 @@
             <Overwrite>True</Overwrite>
         </DeployFile>
     </ItemGroup>
-    <ItemGroup Condition="'$(Platform)'=='iOSDevice32'"/>
     <ItemGroup Condition="'$(Platform)'=='Android'">
         <DeployFile Include="$(BDS)\bin\Artwork\Android\FM_SplashImage_426x320.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle\res\drawable-small\</RemoteDir>
@@ -896,11 +897,29 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="Assets\excited1.mp3" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>Farkle\assets\internal\</RemoteDir>
+            <RemoteName>excited1.mp3</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="$(BDS)\bin\Artwork\Android\FM_SplashImage_470x320.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>Farkle\res\drawable-normal\</RemoteDir>
             <RemoteName>splash_image.png</RemoteName>
             <DeployClass>Android_SplashImage470</DeployClass>
             <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\farkle2.mp3" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>Farkle\assets\internal\</RemoteDir>
+            <RemoteName>farkle2.mp3</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -969,15 +988,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="C:\Users\Alan\Documents\farkle2.mp3" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>Farkle\assets\internal\</RemoteDir>
-            <RemoteName>farkle2.mp3</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="Android\Debug\libFarkle.so" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle\library\lib\armeabi-v7a\</RemoteDir>
             <RemoteName>libFarkle.so</RemoteName>
@@ -1033,9 +1043,9 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="C:\Users\Alan\Documents\excited1.mp3" Condition="'$(Config)'=='Debug'">
+        <DeployFile Include="Assets\farkle3.mp3" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle\assets\internal\</RemoteDir>
-            <RemoteName>excited1.mp3</RemoteName>
+            <RemoteName>farkle3.mp3</RemoteName>
             <DeployClass>File</DeployClass>
             <Operation>0</Operation>
             <LocalCommand/>
@@ -1092,6 +1102,15 @@
             <RemoteName>libFarkle.so</RemoteName>
             <DeployClass>AndroidLibnativeMipsFile</DeployClass>
             <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Assets\farkle1.mp3" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>Farkle\assets\internal\</RemoteDir>
+            <RemoteName>farkle1.mp3</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -1168,15 +1187,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="C:\Users\Alan\Documents\farkle1.mp3" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>Farkle\assets\internal\</RemoteDir>
-            <RemoteName>farkle1.mp3</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="$(BDS)\bin\Artwork\Android\FM_SplashImage_960x720.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>Farkle\res\drawable-xlarge\</RemoteDir>
             <RemoteName>splash_image.png</RemoteName>
@@ -1218,15 +1228,6 @@
             <RemoteName>splash_image.png</RemoteName>
             <DeployClass>Android_SplashImage470</DeployClass>
             <Operation>1</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
-        <DeployFile Include="C:\Users\Alan\Documents\farkle3.mp3" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>Farkle\assets\internal\</RemoteDir>
-            <RemoteName>farkle3.mp3</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>

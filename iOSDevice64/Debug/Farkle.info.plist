@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
 <plist version="1.0">
+
 <dict>
+
 	<key>CFBundleName</key>
 	<string>Farkle</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -46,6 +50,7 @@
 	<string>The reason for accessing the photo library</string>
 	<key>NSCameraUsageDescription</key>
 	<string>The reason for accessing the camera</string>
+
 
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -207,5 +212,8 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 
+
 </dict>
+
 </plist>
+
